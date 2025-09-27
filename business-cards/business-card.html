@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Digital Business Card - Kaleb Endale, Data Analyst & Oil & Gas Technology Specialist">
+    <title>Kaleb Endale - Digital Business Card</title>
+    <link rel="stylesheet" href="https://unpkg.com/phosphor-icons@1.4.2/src/css/icons.css">
+    <style>
+        /* CSS Custom Properties */
+        :root {
+            --primary-color: #64b5f6;
+            --secondary-color: #2c3e50;
+            --accent-color: #3498db;
+            --text-color: #333333;
+            --text-light: #666666;
+            --bg-color: #ffffff;
+            --bg-secondary: #f8f9fa;
+            --border-color: #e1e8ed;
+            --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            --shadow-hover: 0 8px 25px rgba(0, 0, 0, 0.15);
+            --gradient-start: #667eea;
+            --gradient-end: #764ba2;
+            --card-bg: #ffffff;
+            --transition: all 0.3s ease;
+        }
+
+        /* Dark Theme */
+        [data-theme="dark"] {
+            --primary-color: #81c4e8;
+            --secondary-color: #e2e8f0;
+            --accent-color: #64b5f6;
+            --text-color: #f1f5f9;
+            --text-light: #94a3b8;
+            --bg-color: #0f172a;
+            --bg-secondary: #1e293b;
+            --border-color: #334155;
+            --shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            --shadow-hover: 0 8px 25px rgba(0, 0, 0, 0.4);
+            --gradient-start: #4f5b93;
+            --gradient-end: #5a4a7a;
+            --card-bg: #1e293b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            transition: var(--transition);
+        }
+
+        .business-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            max-width: 400px;
+            width: 100%;
+            overflow: hidden;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .business-card:hover {
+            box-shadow: var(--shadow-hover);
+            transform: translateY(-5px);
+        }
+
+        .card-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            padding: 30px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: shimmer 3s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { transform: translate(-50%, -50%) rotate(0deg); }
+            50% { transform: translate(-50%, -50%) rotate(180deg); }
+        }
+
+        .profile-image {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            margin: 0 auto 15px;
+            object-fit: cover;
+            position: relative;
+            z-index: 2;
+        }
+
+        .name {
+            color: white;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .title {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1rem;
+            font-weight: 500;
+            position: relative;
+            z-index: 2;
+        }
+
+        .card-body {
+            padding: 25px;
+        }
+
+        .contact-info {
+            margin-bottom: 25px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            padding: 12px;
+            border-radius: 10px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .contact-item:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateX(5px);
+            box-shadow: var(--shadow);
+        }
+
+        .contact-item i {
+            font-size: 1.2rem;
+            margin-right: 12px;
+            color: var(--primary-color);
+            width: 20px;
+            text-align: center;
+        }
+
+        .contact-item:hover i {
+            color: white;
+        }
+
+        .contact-text {
+            color: var(--text-color);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .contact-item:hover .contact-text {
+            color: white;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 25px;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--bg-secondary);
+            border: 2px solid var(--border-color);
+            color: var(--primary-color);
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: scale(1.1);
+            box-shadow: var(--shadow);
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            flex: 1;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 10px;
+            font-weight: 600;
+            text-decoration: none;
+            text-align: center;
+            transition: var(--transition);
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-secondary {
+            background: var(--bg-secondary);
+            color: var(--text-color);
+            border: 2px solid var(--border-color);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+
+        .qr-section {
+            text-align: center;
+            padding-top: 15px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .qr-code {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 10px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        .qr-text {
+            color: var(--text-light);
+            font-size: 0.8rem;
+        }
+
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: var(--card-bg);
+            border: 2px solid var(--border-color);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.2rem;
+            color: var(--text-color);
+            transition: var(--transition);
+            z-index: 1000;
+        }
+
+        .theme-toggle:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: scale(1.1);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 480px) {
+            .business-card {
+                margin: 10px;
+            }
+
+            .card-header {
+                padding: 25px 15px;
+            }
+
+            .name {
+                font-size: 1.5rem;
+            }
+
+            .card-body {
+                padding: 20px;
+            }
+
+            .action-buttons {
+                flex-direction: column;
+            }
+        }
+
+        /* Animation for card entrance */
+        .business-card {
+            animation: cardEnter 0.8s ease-out;
+        }
+
+        @keyframes cardEnter {
+            from {
+                opacity: 0;
+                transform: translateY(30px) scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Theme Toggle -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <i class="ph-sun" id="themeIcon"></i>
+    </button>
+
+    <div class="business-card">
+        <!-- Header Section -->
+        <div class="card-header">
+            <img src="images/pic09.jpeg" alt="Kaleb Endale" class="profile-image">
+            <h1 class="name">Kaleb Endale</h1>
+            <p class="title">Data Analyst & Oil & Gas Technology Specialist</p>
+        </div>
+
+        <!-- Body Section -->
+        <div class="card-body">
+            <!-- Contact Information -->
+            <div class="contact-info">
+                <div class="contact-item" onclick="window.open('mailto:kalebendale@protonmail.com')">
+                    <i class="ph-envelope"></i>
+                    <span class="contact-text">kalebendale@protonmail.com</span>
+                </div>
+
+                <div class="contact-item" onclick="window.open('tel:+17809646896')">
+                    <i class="ph-phone"></i>
+                    <span class="contact-text">780-964-6896</span>
+                </div>
+
+                <div class="contact-item">
+                    <i class="ph-map-pin"></i>
+                    <span class="contact-text">Edmonton, Alberta, Canada</span>
+                </div>
+
+                <div class="contact-item" onclick="window.open('https://EndaleK.github.io/portfolio', '_blank')">
+                    <i class="ph-globe"></i>
+                    <span class="contact-text">Portfolio Website</span>
+                </div>
+            </div>
+
+            <!-- Social Media Links -->
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/kaleb-endale-b45bb4316/" target="_blank" class="social-link" title="LinkedIn">
+                    <i class="ph-linkedin-logo"></i>
+                </a>
+                <a href="https://github.com/EndaleK" target="_blank" class="social-link" title="GitHub">
+                    <i class="ph-github-logo"></i>
+                </a>
+                <a href="https://EndaleK.github.io/portfolio" target="_blank" class="social-link" title="Portfolio">
+                    <i class="ph-briefcase"></i>
+                </a>
+                <a href="mailto:kalebendale@protonmail.com" class="social-link" title="Email">
+                    <i class="ph-envelope"></i>
+                </a>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="action-buttons">
+                <a href="kaleb-endale.vcf" download class="btn btn-primary">
+                    <i class="ph-download-simple"></i> Save Contact
+                </a>
+                <a href="https://EndaleK.github.io/portfolio" target="_blank" class="btn btn-secondary">
+                    <i class="ph-eye"></i> View Portfolio
+                </a>
+            </div>
+
+            <!-- QR Code Section -->
+            <div class="qr-section">
+                <img src="../qr-codes/portfolio-qr-code-small.png" alt="Portfolio QR Code" class="qr-code">
+                <p class="qr-text">Scan to visit my portfolio</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Theme Management
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIcon = document.getElementById('themeIcon');
+        const body = document.body;
+
+        // Get saved theme or default to light
+        const savedTheme = localStorage.getItem('business-card-theme') || 'light';
+        setTheme(savedTheme);
+
+        function setTheme(theme) {
+            if (theme === 'dark') {
+                body.setAttribute('data-theme', 'dark');
+                themeIcon.className = 'ph-moon';
+            } else {
+                body.removeAttribute('data-theme');
+                themeIcon.className = 'ph-sun';
+            }
+            localStorage.setItem('business-card-theme', theme);
+        }
+
+        function toggleTheme() {
+            const currentTheme = body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            setTheme(newTheme);
+        }
+
+        themeToggle.addEventListener('click', toggleTheme);
+
+        // System theme preference detection
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+        if (!localStorage.getItem('business-card-theme')) {
+            setTheme(prefersDark.matches ? 'dark' : 'light');
+        }
+
+        // Contact item click animations
+        document.querySelectorAll('.contact-item').forEach(item => {
+            item.addEventListener('click', function() {
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 150);
+            });
+        });
+
+        // Social link hover effects
+        document.querySelectorAll('.social-link').forEach(link => {
+            link.addEventListener('mouseenter', function() {
+                this.style.transform = 'scale(1.1) rotate(5deg)';
+            });
+
+            link.addEventListener('mouseleave', function() {
+                this.style.transform = 'scale(1) rotate(0deg)';
+            });
+        });
+
+        // Button click effects
+        document.querySelectorAll('.btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 150);
+            });
+        });
+    </script>
+</body>
+</html>
