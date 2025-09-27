@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media Business Card - Kaleb Endale</title>
+    <link rel="stylesheet" href="https://unpkg.com/phosphor-icons@1.4.2/src/css/icons.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+            background: #f0f2f5;
+            padding: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .card-container {
+            background: white;
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+
+        .card-title {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+            font-weight: 600;
+        }
+
+        /* LinkedIn Card */
+        .linkedin-card {
+            width: 1200px;
+            height: 630px;
+            background: linear-gradient(135deg, #0077B5 0%, #005885 100%);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 60px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .linkedin-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .linkedin-left {
+            flex: 1;
+            z-index: 2;
+        }
+
+        .linkedin-right {
+            flex: 0 0 300px;
+            text-align: center;
+            z-index: 2;
+        }
+
+        .profile-image-lg {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 6px solid rgba(255,255,255,0.3);
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
+
+        .name-lg {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            line-height: 1.1;
+        }
+
+        .title-lg {
+            font-size: 1.8rem;
+            font-weight: 400;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .description-lg {
+            font-size: 1.3rem;
+            line-height: 1.6;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .contact-lg {
+            font-size: 1.1rem;
+            opacity: 0.8;
+        }
+
+        .qr-code-lg {
+            width: 150px;
+            height: 150px;
+            background: white;
+            border-radius: 15px;
+            padding: 10px;
+            margin-bottom: 15px;
+        }
+
+        .qr-code-lg img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .qr-text-lg {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Instagram/Square Card */
+        .instagram-card {
+            width: 1080px;
+            height: 1080px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 80px;
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .instagram-card::before {
+            content: '';
+            position: absolute;
+            top: -25%;
+            left: -25%;
+            width: 150%;
+            height: 150%;
+            background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 50%);
+        }
+
+        .instagram-content {
+            z-index: 2;
+        }
+
+        .profile-image-sq {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            border: 8px solid rgba(255,255,255,0.3);
+            object-fit: cover;
+            margin-bottom: 40px;
+        }
+
+        .name-sq {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .title-sq {
+            font-size: 2.2rem;
+            font-weight: 400;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .stats-sq {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            margin-bottom: 40px;
+        }
+
+        .stat-sq {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            opacity: 0.8;
+        }
+
+        .contact-sq {
+            font-size: 1.4rem;
+            margin-bottom: 30px;
+        }
+
+        .qr-section-sq {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .qr-code-sq {
+            width: 120px;
+            height: 120px;
+            background: white;
+            border-radius: 15px;
+            padding: 8px;
+        }
+
+        .qr-code-sq img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        /* Twitter Card */
+        .twitter-card {
+            width: 1200px;
+            height: 675px;
+            background: linear-gradient(135deg, #1DA1F2 0%, #0d8bd9 100%);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            padding: 60px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .twitter-card::before {
+            content: '';
+            position: absolute;
+            top: -30%;
+            right: -15%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .twitter-left {
+            flex: 1;
+            z-index: 2;
+        }
+
+        .twitter-right {
+            flex: 0 0 250px;
+            text-align: center;
+            z-index: 2;
+        }
+
+        .profile-image-tw {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 4px solid rgba(255,255,255,0.3);
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
+
+        .name-tw {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .handle-tw {
+            font-size: 1.3rem;
+            opacity: 0.8;
+            margin-bottom: 30px;
+        }
+
+        .bio-tw {
+            font-size: 1.4rem;
+            line-height: 1.5;
+            margin-bottom: 30px;
+        }
+
+        .location-tw {
+            font-size: 1.1rem;
+            opacity: 0.8;
+            margin-bottom: 10px;
+        }
+
+        .qr-code-tw {
+            width: 100px;
+            height: 100px;
+            background: white;
+            border-radius: 12px;
+            padding: 8px;
+            margin-bottom: 10px;
+        }
+
+        .qr-code-tw img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        /* Mobile Business Card */
+        .mobile-card {
+            width: 375px;
+            height: 667px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 25px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mobile-card::before {
+            content: '';
+            position: absolute;
+            top: -20%;
+            left: -20%;
+            width: 140%;
+            height: 140%;
+            background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 60%);
+        }
+
+        .mobile-content {
+            z-index: 2;
+        }
+
+        .profile-image-mobile {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 4px solid rgba(255,255,255,0.3);
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
+
+        .name-mobile {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .title-mobile {
+            font-size: 1rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .contact-mobile {
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .qr-code-mobile {
+            width: 80px;
+            height: 80px;
+            background: white;
+            border-radius: 10px;
+            padding: 6px;
+            margin-bottom: 10px;
+        }
+
+        .qr-code-mobile img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-icon {
+            width: 35px;
+            height: 35px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- LinkedIn Post Card -->
+    <div class="card-container">
+        <h2 class="card-title">LinkedIn Post Card (1200x630)</h2>
+        <div class="linkedin-card">
+            <div class="linkedin-left">
+                <h1 class="name-lg">Kaleb Endale</h1>
+                <p class="title-lg">Data Analyst & Oil & Gas Technology Specialist</p>
+                <p class="description-lg">
+                    Bridging traditional energy with modern data science.<br>
+                    13+ years of oil & gas experience combined with cutting-edge analytics.
+                </p>
+                <div class="contact-lg">
+                    📧 kalebendale@protonmail.com<br>
+                    📱 780-964-6896<br>
+                    📍 Edmonton, Alberta, Canada
+                </div>
+            </div>
+            <div class="linkedin-right">
+                <img src="images/pic09.jpeg" alt="Kaleb Endale" class="profile-image-lg">
+                <div class="qr-code-lg">
+                    <img src="portfolio-qr-code.png" alt="Portfolio QR Code">
+                </div>
+                <p class="qr-text-lg">Scan for Portfolio</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Instagram/Square Card -->
+    <div class="card-container">
+        <h2 class="card-title">Instagram Square Card (1080x1080)</h2>
+        <div class="instagram-card">
+            <div class="instagram-content">
+                <img src="images/pic09.jpeg" alt="Kaleb Endale" class="profile-image-sq">
+                <h1 class="name-sq">Kaleb Endale</h1>
+                <p class="title-sq">Data Analyst & Oil & Gas Specialist</p>
+
+                <div class="stats-sq">
+                    <div class="stat-sq">
+                        <span class="stat-number">13+</span>
+                        <span class="stat-label">Years Experience</span>
+                    </div>
+                    <div class="stat-sq">
+                        <span class="stat-number">500+</span>
+                        <span class="stat-label">Wells Monitored</span>
+                    </div>
+                    <div class="stat-sq">
+                        <span class="stat-number">25%</span>
+                        <span class="stat-label">Downtime Reduction</span>
+                    </div>
+                </div>
+
+                <div class="contact-sq">kalebendale@protonmail.com</div>
+
+                <div class="qr-section-sq">
+                    <div class="qr-code-sq">
+                        <img src="portfolio-qr-code.png" alt="Portfolio QR Code">
+                    </div>
+                    <div>
+                        <div style="font-size: 1.2rem; margin-bottom: 5px;">📱 Scan for Portfolio</div>
+                        <div style="opacity: 0.8;">EndaleK.github.io/portfolio</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Twitter Card -->
+    <div class="card-container">
+        <h2 class="card-title">Twitter Card (1200x675)</h2>
+        <div class="twitter-card">
+            <div class="twitter-left">
+                <h1 class="name-tw">Kaleb Endale</h1>
+                <p class="handle-tw">@KalebEndale</p>
+                <p class="bio-tw">
+                    🛢️ Oil & Gas Technology Specialist<br>
+                    📊 Data Analyst | 13+ Years Experience<br>
+                    🐍 Python • R • SQL • Machine Learning<br>
+                    🔧 Bridging Energy & Data Science
+                </p>
+                <p class="location-tw">📍 Edmonton, Alberta, Canada</p>
+                <p class="location-tw">📧 kalebendale@protonmail.com</p>
+            </div>
+            <div class="twitter-right">
+                <img src="images/pic09.jpeg" alt="Kaleb Endale" class="profile-image-tw">
+                <div class="qr-code-tw">
+                    <img src="portfolio-qr-code.png" alt="Portfolio QR Code">
+                </div>
+                <p class="qr-text-lg">Portfolio</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile Business Card -->
+    <div class="card-container">
+        <h2 class="card-title">Mobile Business Card (375x667)</h2>
+        <div class="mobile-card">
+            <div class="mobile-content">
+                <img src="images/pic09.jpeg" alt="Kaleb Endale" class="profile-image-mobile">
+                <h1 class="name-mobile">Kaleb Endale</h1>
+                <p class="title-mobile">Data Analyst & Oil & Gas Specialist</p>
+
+                <div class="contact-mobile">
+                    📧 kalebendale@protonmail.com<br>
+                    📱 780-964-6896<br>
+                    📍 Edmonton, AB, Canada
+                </div>
+
+                <div class="qr-code-mobile">
+                    <img src="portfolio-qr-code.png" alt="Portfolio QR Code">
+                </div>
+                <div style="font-size: 0.8rem; opacity: 0.8;">Scan for Portfolio</div>
+
+                <div class="social-icons">
+                    <div class="social-icon"><i class="ph-linkedin-logo"></i></div>
+                    <div class="social-icon"><i class="ph-github-logo"></i></div>
+                    <div class="social-icon"><i class="ph-envelope"></i></div>
+                    <div class="social-icon"><i class="ph-globe"></i></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
