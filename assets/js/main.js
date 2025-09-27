@@ -2,6 +2,9 @@
 document.addEventListener('DOMContentLoaded', () => {
   // Add class to indicate JavaScript has loaded
   document.body.classList.add('js-loaded');
+
+  // Inspired by Arlen McCluskey's portfolio - Enhanced animated background
+  initAnimatedDotField();
   // Theme Management
   const themeToggle = document.querySelector('.theme-toggle');
   const themeIcon = document.querySelector('.theme-toggle__icon');
@@ -843,6 +846,238 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
   
+  // Enhanced Scroll Progress Indicator
+  function initScrollProgress() {
+    const progressBar = document.querySelector('.scroll-progress__bar');
+    const mainContent = document.querySelector('.main');
+
+    if (!progressBar || !mainContent) return;
+
+    function updateScrollProgress() {
+      const scrollTop = mainContent.scrollTop;
+      const scrollHeight = mainContent.scrollHeight - mainContent.clientHeight;
+      const scrollPercent = (scrollTop / scrollHeight) * 100;
+
+      progressBar.style.width = `${Math.min(scrollPercent, 100)}%`;
+    }
+
+    mainContent.addEventListener('scroll', updateScrollProgress);
+    updateScrollProgress(); // Initial call
+  }
+
+  // Enhanced Intersection Observer with Stagger Effects
+  function initStaggerAnimations() {
+    const staggerItems = document.querySelectorAll('.expertise__card, .stat, .skill__category');
+
+    const staggerObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+          }, index * 100); // Stagger by 100ms
+
+          staggerObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    staggerItems.forEach(item => {
+      item.style.opacity = '0';
+      item.style.transform = 'translateY(20px)';
+      item.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+      staggerObserver.observe(item);
+    });
+  }
+
+  // Enhanced Theme Toggle with Smooth Transition
+  function enhanceThemeToggle() {
+    const themeToggle = document.querySelector('.theme-toggle');
+    if (!themeToggle) return;
+
+    themeToggle.addEventListener('click', function() {
+      // Add transition class to body for smooth theme change
+      document.body.style.transition = 'all 0.3s ease';
+
+      // Remove transition after animation completes
+      setTimeout(() => {
+        document.body.style.transition = '';
+      }, 300);
+
+      // Add ripple effect to theme toggle
+      this.style.transform = 'scale(0.9)';
+      setTimeout(() => {
+        this.style.transform = '';
+      }, 150);
+    });
+  }
+
+  // Enhanced Portfolio Filters with Smooth Transitions
+  function enhancePortfolioFilters() {
+    const filterButtons = document.querySelectorAll('.filter__btn');
+
+    filterButtons.forEach(button => {
+      button.addEventListener('click', function() {
+        // Enhanced visual feedback for filter selection
+        filterButtons.forEach(btn => {
+          btn.style.transform = '';
+          btn.style.background = '';
+        });
+
+        this.style.transform = 'scale(0.95)';
+        this.style.background = 'var(--primary-color)';
+        this.style.color = 'white';
+
+        setTimeout(() => {
+          this.style.transform = '';
+        }, 150);
+      });
+    });
+  }
+
+  // Magnetic Effect for Interactive Elements
+  function initMagneticEffect() {
+    const magneticElements = document.querySelectorAll('.btn, .sidebar__link, .portfolio__item');
+
+    magneticElements.forEach(element => {
+      element.addEventListener('mouseenter', function() {
+        this.style.transition = 'transform 0.3s cubic-bezier(0.4, 0, 0.2, 1)';
+      });
+
+      element.addEventListener('mouseleave', function() {
+        this.style.transform = '';
+      });
+
+      element.addEventListener('mousemove', function(e) {
+        const rect = this.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+
+        const moveX = x * 0.1;
+        const moveY = y * 0.1;
+
+        this.style.transform = `translate(${moveX}px, ${moveY}px)`;
+      });
+    });
+  }
+
+  // Enhanced Form Validation with Real-time Feedback
+  function enhanceFormValidation() {
+    const form = document.querySelector('.contact__form');
+    if (!form) return;
+
+    const inputs = form.querySelectorAll('input, textarea');
+
+    inputs.forEach(input => {
+      // Add real-time validation
+      input.addEventListener('blur', function() {
+        validateField(this);
+      });
+
+      input.addEventListener('input', function() {
+        // Clear error state on input
+        if (this.classList.contains('error')) {
+          this.classList.remove('error');
+          const errorMessage = this.parentNode.querySelector('.error-message');
+          if (errorMessage) errorMessage.remove();
+        }
+      });
+    });
+  }
+
+  function validateField(field) {
+    const value = field.value.trim();
+    let isValid = true;
+    let message = '';
+
+    if (field.hasAttribute('required') && !value) {
+      isValid = false;
+      message = 'This field is required';
+    } else if (field.type === 'email' && value) {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(value)) {
+        isValid = false;
+        message = 'Please enter a valid email address';
+      }
+    }
+
+    if (!isValid) {
+      field.classList.add('error');
+      showFieldError(field, message);
+    } else {
+      field.classList.remove('error');
+      const errorMessage = field.parentNode.querySelector('.error-message');
+      if (errorMessage) errorMessage.remove();
+    }
+
+    return isValid;
+  }
+
+  function showFieldError(field, message) {
+    const existingError = field.parentNode.querySelector('.error-message');
+    if (existingError) existingError.remove();
+
+    const errorDiv = document.createElement('div');
+    errorDiv.className = 'error-message';
+    errorDiv.textContent = message;
+    errorDiv.style.cssText = `
+      color: #dc2626;
+      font-size: 0.8rem;
+      margin-top: 0.25rem;
+      animation: fadeIn 0.3s ease;
+    `;
+
+    field.parentNode.appendChild(errorDiv);
+  }
+
+  // Initialize all micro-interactions
+  initScrollProgress();
+  initStaggerAnimations();
+  enhanceThemeToggle();
+  enhancePortfolioFilters();
+  initMagneticEffect();
+  enhanceFormValidation();
+
+  // Add CSS animations for micro-interactions
+  const microInteractionCSS = `
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-5px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .error {
+      border-color: #dc2626 !important;
+      box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1) !important;
+    }
+
+    .contact__form input:focus,
+    .contact__form textarea:focus {
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-focus);
+    }
+
+    .portfolio__item {
+      will-change: transform;
+    }
+
+    .btn {
+      will-change: transform;
+    }
+
+    /* Reduced motion preferences */
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  `;
+
+  const microStyle = document.createElement('style');
+  microStyle.textContent = microInteractionCSS;
+  document.head.appendChild(microStyle);
+
   // Add loading states for navigation
   function showLoadingState(element) {
     const originalText = element.textContent;
@@ -867,6 +1102,156 @@ document.addEventListener('DOMContentLoaded', () => {
       }, 200);
     });
   });
+
+  // Inspired by Arlen McCluskey - Animated Dot Field Background
+  function initAnimatedDotField() {
+    const dotField = document.createElement('div');
+    dotField.className = 'animated-dot-field';
+    document.body.appendChild(dotField);
+
+    const dots = [];
+    const isMobile = window.innerWidth < 768;
+    const isReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const numberOfDots = isReducedMotion ? 0 : (isMobile ? 25 : 40);
+
+    // Create dots
+    for (let i = 0; i < numberOfDots; i++) {
+      const dot = document.createElement('div');
+      dot.className = 'animated-dot';
+
+      // Random positioning
+      const x = Math.random() * window.innerWidth;
+      const y = Math.random() * window.innerHeight;
+
+      const dotSize = isMobile ? '1.5px' : '2px';
+      const dotOpacity = isMobile ? '0.2' : '0.3';
+
+      dot.style.cssText = `
+        position: fixed;
+        width: ${dotSize};
+        height: ${dotSize};
+        background: var(--primary-color, #64b5f6);
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 1;
+        opacity: ${dotOpacity};
+        left: ${x}px;
+        top: ${y}px;
+        transition: opacity 0.3s ease;
+        will-change: transform;
+        backface-visibility: hidden;
+      `;
+
+      dots.push({
+        element: dot,
+        x: x,
+        y: y,
+        vx: (Math.random() - 0.5) * 0.5,
+        vy: (Math.random() - 0.5) * 0.5,
+        originalX: x,
+        originalY: y
+      });
+
+      dotField.appendChild(dot);
+    }
+
+    // Mouse interaction
+    let mouseX = 0;
+    let mouseY = 0;
+    let isMouseMoving = false;
+
+    document.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      isMouseMoving = true;
+
+      setTimeout(() => {
+        isMouseMoving = false;
+      }, 100);
+    });
+
+    // Optimized animation loop with mobile performance considerations
+    let animationId;
+    function animateDots() {
+      dots.forEach(dot => {
+        // Mouse repulsion effect (reduced on mobile)
+        if (isMouseMoving && !isMobile) {
+          const distance = Math.sqrt(
+            Math.pow(mouseX - dot.x, 2) + Math.pow(mouseY - dot.y, 2)
+          );
+
+          if (distance < 100) {
+            const angle = Math.atan2(dot.y - mouseY, dot.x - mouseX);
+            const force = (100 - distance) / 100;
+            dot.vx += Math.cos(angle) * force * 0.5;
+            dot.vy += Math.sin(angle) * force * 0.5;
+            dot.element.style.opacity = '0.8';
+          } else {
+            dot.element.style.opacity = dotOpacity;
+          }
+        } else if (isMobile) {
+          // Simpler animation for mobile
+          dot.element.style.opacity = dotOpacity;
+        }
+
+        // Natural floating movement
+        dot.x += dot.vx;
+        dot.y += dot.vy;
+
+        // Gravity back to original position
+        const backForceX = (dot.originalX - dot.x) * 0.001;
+        const backForceY = (dot.originalY - dot.y) * 0.001;
+        dot.vx += backForceX;
+        dot.vy += backForceY;
+
+        // Damping
+        dot.vx *= 0.99;
+        dot.vy *= 0.99;
+
+        // Boundary constraints
+        if (dot.x < 0 || dot.x > window.innerWidth) dot.vx *= -0.5;
+        if (dot.y < 0 || dot.y > window.innerHeight) dot.vy *= -0.5;
+
+        // Update position with optimized transforms
+        dot.element.style.transform = `translate3d(${dot.x}px, ${dot.y}px, 0)`;
+        dot.element.style.left = '0';
+        dot.element.style.top = '0';
+      });
+
+      // Throttle animation on mobile for better performance
+      if (isMobile) {
+        setTimeout(() => {
+          animationId = requestAnimationFrame(animateDots);
+        }, 16); // ~60fps
+      } else {
+        animationId = requestAnimationFrame(animateDots);
+      }
+    }
+
+    animateDots();
+
+    // Resize handler
+    window.addEventListener('resize', () => {
+      dots.forEach(dot => {
+        dot.originalX = Math.random() * window.innerWidth;
+        dot.originalY = Math.random() * window.innerHeight;
+      });
+    });
+
+    // Theme-aware dot colors
+    const observer = new MutationObserver(() => {
+      const isDark = document.body.getAttribute('data-theme') === 'dark';
+      const color = isDark ? '#94a3b8' : '#64b5f6';
+      dots.forEach(dot => {
+        dot.element.style.background = color;
+      });
+    });
+
+    observer.observe(document.body, {
+      attributes: true,
+      attributeFilter: ['data-theme']
+    });
+  }
 });
 
 // Export for module usage

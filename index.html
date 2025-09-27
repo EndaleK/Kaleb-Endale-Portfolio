@@ -2,15 +2,29 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Kaleb Endale - Data Analyst & Developer specializing in Oil & Gas industry">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="Kaleb Endale - Data Analyst & Developer specializing in Oil & Gas industry. 13+ years experience bridging traditional energy with modern data science.">
+    <meta name="theme-color" content="#64b5f6" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#1e293b" media="(prefers-color-scheme: dark)">
     <title>Kaleb Endale | Data Analyst & Developer</title>
-    <link rel="stylesheet" href="assets/css/main.css">
+
+    <!-- Preload critical resources -->
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://unpkg.com/phosphor-icons@1.4.2/src/css/icons.css">
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <link rel="preload" href="https://unpkg.com/phosphor-icons@1.4.2/src/css/icons.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://unpkg.com/phosphor-icons@1.4.2/src/css/icons.css"></noscript>
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="assets/css/main.css">
+
+    <!-- Scripts -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js" defer></script>
 </head>
 <body>
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-progress">
+        <div class="scroll-progress__bar"></div>
+    </div>
+
     <!-- Theme Toggle -->
     <button class="theme-toggle" aria-label="Toggle dark/light theme" title="Toggle theme">
         <i class="ph-sun theme-toggle__icon"></i>
@@ -242,12 +256,29 @@
                             <div class="portfolio__image">
                                 <img src="images/portfolio-1.jpg" alt="Real-Time Data Pipeline Dashboard" loading="lazy">
                                 <div class="portfolio__overlay">
-                                    <h3>Real-Time Data Pipeline</h3>
-                                    <p>Automated system processing 1M+ data points daily using Python and SQL with unified monitoring dashboard</p>
-                                    <div class="portfolio__tech">
-                                        <span>Python</span>
-                                        <span>SQL</span>
-                                        <span>Tableau</span>
+                                    <div class="portfolio__content">
+                                        <h3>Real-Time Data Pipeline</h3>
+                                        <p class="portfolio__challenge">Challenge: Manual data processing causing 4+ hour delays in critical decision making</p>
+                                        <p class="portfolio__solution">Automated system processing 1M+ data points daily using Python and SQL with unified monitoring dashboard</p>
+                                        <div class="portfolio__metrics">
+                                            <div class="metric">
+                                                <span class="metric__value">75%</span>
+                                                <span class="metric__label">Time Reduction</span>
+                                            </div>
+                                            <div class="metric">
+                                                <span class="metric__value">1M+</span>
+                                                <span class="metric__label">Daily Data Points</span>
+                                            </div>
+                                            <div class="metric">
+                                                <span class="metric__value">99.9%</span>
+                                                <span class="metric__label">Accuracy</span>
+                                            </div>
+                                        </div>
+                                        <div class="portfolio__tech">
+                                            <span>Python</span>
+                                            <span>SQL</span>
+                                            <span>Tableau</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -256,12 +287,29 @@
                             <div class="portfolio__image">
                                 <img src="images/portfolio-2.jpg" alt="Predictive Maintenance Model" loading="lazy">
                                 <div class="portfolio__overlay">
-                                    <h3>Predictive Maintenance Model</h3>
-                                    <p>Machine learning model predicting equipment failures 72 hours in advance with 85% accuracy, saving $500K+ in prevented downtime</p>
-                                    <div class="portfolio__tech">
-                                        <span>Python</span>
-                                        <span>scikit-learn</span>
-                                        <span>TensorFlow</span>
+                                    <div class="portfolio__content">
+                                        <h3>Predictive Maintenance Model</h3>
+                                        <p class="portfolio__challenge">Challenge: Unexpected equipment failures causing $2M+ annual losses</p>
+                                        <p class="portfolio__solution">Machine learning model predicting equipment failures 72 hours in advance using historical sensor data</p>
+                                        <div class="portfolio__metrics">
+                                            <div class="metric">
+                                                <span class="metric__value">85%</span>
+                                                <span class="metric__label">Accuracy</span>
+                                            </div>
+                                            <div class="metric">
+                                                <span class="metric__value">$500K+</span>
+                                                <span class="metric__label">Cost Savings</span>
+                                            </div>
+                                            <div class="metric">
+                                                <span class="metric__value">72hr</span>
+                                                <span class="metric__label">Early Warning</span>
+                                            </div>
+                                        </div>
+                                        <div class="portfolio__tech">
+                                            <span>Python</span>
+                                            <span>scikit-learn</span>
+                                            <span>TensorFlow</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -270,12 +318,29 @@
                             <div class="portfolio__image">
                                 <img src="images/portfolio-4.jpg" alt="Automated Reporting System" loading="lazy">
                                 <div class="portfolio__overlay">
-                                    <h3>Automated Reporting System</h3>
-                                    <p>Python-based analytics tools monitoring real-time frac tree data streams with automated report generation, reducing time by 40%</p>
-                                    <div class="portfolio__tech">
-                                        <span>Python</span>
-                                        <span>SQL</span>
-                                        <span>Power BI</span>
+                                    <div class="portfolio__content">
+                                        <h3>Automated Reporting System</h3>
+                                        <p class="portfolio__challenge">Challenge: Manual reporting consuming 8+ hours daily</p>
+                                        <p class="portfolio__solution">Python-based analytics tools monitoring real-time frac tree data streams with automated report generation</p>
+                                        <div class="portfolio__metrics">
+                                            <div class="metric">
+                                                <span class="metric__value">40%</span>
+                                                <span class="metric__label">Time Saved</span>
+                                            </div>
+                                            <div class="metric">
+                                                <span class="metric__value">24/7</span>
+                                                <span class="metric__label">Monitoring</span>
+                                            </div>
+                                            <div class="metric">
+                                                <span class="metric__value">100%</span>
+                                                <span class="metric__label">Automation</span>
+                                            </div>
+                                        </div>
+                                        <div class="portfolio__tech">
+                                            <span>Python</span>
+                                            <span>SQL</span>
+                                            <span>Power BI</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
