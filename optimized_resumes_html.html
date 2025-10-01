@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kaleb Endale - Professional Resume</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            padding: 20px;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .tab-nav {
+            display: flex;
+            background: #2c3e50;
+        }
+        
+        .tab-btn {
+            flex: 1;
+            padding: 15px;
+            background: #2c3e50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+        
+        .tab-btn:hover {
+            background: #34495e;
+        }
+        
+        .tab-btn.active {
+            background: white;
+            color: #2c3e50;
+        }
+        
+        .resume {
+            display: none;
+            padding: 40px 50px;
+        }
+        
+        .resume.active {
+            display: block;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #2c3e50;
+        }
+        
+        .header h1 {
+            font-size: 28px;
+            color: #2c3e50;
+            margin-bottom: 6px;
+            letter-spacing: 1px;
+        }
+        
+        .header .tagline {
+            font-size: 13px;
+            color: #555;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        
+        .contact {
+            font-size: 11px;
+            color: #666;
+        }
+        
+        .contact span {
+            margin: 0 10px;
+        }
+        
+        .section {
+            margin-bottom: 25px;
+        }
+        
+        .section h2 {
+            font-size: 14px;
+            color: #2c3e50;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+        }
+        
+        .summary {
+            font-size: 11px;
+            line-height: 1.7;
+            text-align: justify;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            font-size: 11px;
+        }
+        
+        .skill-cat h3 {
+            font-size: 12px;
+            color: #2c3e50;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+        
+        .skill-cat p {
+            color: #555;
+            line-height: 1.6;
+        }
+        
+        .job {
+            margin-bottom: 20px;
+            page-break-inside: avoid;
+        }
+        
+        .job-header {
+            margin-bottom: 8px;
+        }
+        
+        .job-title {
+            font-size: 12px;
+            font-weight: 700;
+            color: #2c3e50;
+        }
+        
+        .company-line {
+            font-size: 11px;
+            color: #555;
+            margin-top: 2px;
+        }
+        
+        .company {
+            font-weight: 600;
+        }
+        
+        .job ul {
+            margin-left: 18px;
+            font-size: 11px;
+        }
+        
+        .job li {
+            margin-bottom: 6px;
+            color: #444;
+            line-height: 1.6;
+        }
+        
+        .edu-item {
+            margin-bottom: 12px;
+            font-size: 11px;
+        }
+        
+        .edu-item h3 {
+            font-size: 12px;
+            color: #2c3e50;
+            font-weight: 600;
+            margin-bottom: 2px;
+        }
+        
+        .edu-item p {
+            color: #666;
+            line-height: 1.5;
+        }
+        
+        .cert-list {
+            font-size: 11px;
+            color: #555;
+            line-height: 1.8;
+        }
+        
+        .achievements ul {
+            margin-left: 18px;
+            font-size: 11px;
+        }
+        
+        .achievements li {
+            margin-bottom: 6px;
+            color: #444;
+            line-height: 1.6;
+        }
+        
+        .download-area {
+            text-align: center;
+            padding: 20px;
+            background: #f8f9fa;
+            border-top: 2px solid #ddd;
+        }
+        
+        .download-btn {
+            display: inline-block;
+            padding: 10px 25px;
+            background: #2c3e50;
+            color: white;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: 600;
+            margin: 5px;
+            transition: background 0.3s;
+        }
+        
+        .download-btn:hover {
+            background: #34495e;
+        }
+        
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            
+            .container {
+                box-shadow: none;
+                max-width: 100%;
+            }
+            
+            .tab-nav, .download-area {
+                display: none;
+            }
+            
+            .resume {
+                display: block !important;
+                padding: 0.5in;
+            }
+            
+            .section {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="tab-nav">
+            <button class="tab-btn active" onclick="showResume('analyst')">Data Analyst</button>
+            <button class="tab-btn" onclick="showResume('scientist')">Data Scientist/ML</button>
+            <button class="tab-btn" onclick="showResume('energy')">Energy Data</button>
+        </div>
+        
+        <!-- VERSION 1: DATA ANALYST -->
+        <div id="analyst" class="resume active">
+            <div class="header">
+                <h1>KALEB ENDALE</h1>
+                <div class="tagline">Data Analyst | SQL, Python, Tableau | Driving Business Insights Through Analytics</div>
+                <div class="contact">
+                    <span>Edmonton, AB</span> |
+                    <span>kalebendale@protonmail.com</span> |
+                    <span>780-964-6896</span>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>Professional Summary</h2>
+                <p class="summary">Google-certified Data Analyst with 13+ years transforming operational data into actionable business insights that drive revenue growth and cost reduction. Expert in SQL, Python, and Tableau with proven track record delivering automated reporting systems, predictive analytics, and data visualizations that reduced costs by $500K+ annually. Skilled at translating complex datasets into executive-ready insights and collaborating across technical and non-technical teams to solve critical business challenges.</p>
+            </div>
+            
+            <div class="section">
+                <h2>Core Skills</h2>
+                <div class="skills-grid">
+                    <div class="skill-cat">
+                        <h3>Data Analysis & Programming</h3>
+                        <p>SQL (Advanced), Python (pandas, NumPy, SciPy), R (dplyr, tidyr), Excel (Pivot Tables, Power Query, VBA), Statistical Analysis, Data Cleaning, ETL Processes</p>
+                    </div>
+                    <div class="skill-cat">
+                        <h3>Visualization & Business Intelligence</h3>
+                        <p>Tableau, Power BI, Matplotlib, Seaborn, ggplot2, Dashboard Design, KPI Development, Executive Reporting, Data Storytelling</p>
+                    </div>
+                    <div class="skill-cat">
+                        <h3>Database & Tools</h3>
+                        <p>SQL Server, PostgreSQL, API Integration, JavaScript, Linux, Git, Cloud Platforms, Data Pipeline Development</p>
+                    </div>
+                    <div class="skill-cat">
+                        <h3>Business & Analytics</h3>
+                        <p>A/B Testing, Predictive Analytics, Time-Series Analysis, Process Optimization, Requirements Gathering, Stakeholder Management, Cross-Functional Collaboration</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>Professional Experience</h2>
+                
+                <div class="job">
+                    <div class="job-header">
+                        <div class="job-title">Data Analyst & Technical Operations Specialist</div>
+                        <div class="company-line"><span class="company">Cold Bore Technology</span>, Edmonton, AB | 2021 - 2024</div>
+                    </div>
+                    <ul>
+                        <li>Built automated SQL-based reporting system processing 1M+ daily records, reducing report generation time by 40% and enabling real-time dashboards for C-suite decision-making</li>
+                        <li>Developed predictive maintenance models using Python (scikit-learn) and statistical analysis that forecasted equipment failures 72 hours in advance with 85% accuracy, preventing $500K+ in unplanned downtime</li>
+                        <li>Created 12+ interactive Tableau dashboards tracking operational KPIs across 500+ monitoring systems, improving stakeholder decision-making speed by 35% and identifying $200K in cost-saving opportunities</li>
+                        <li>Designed Python-based ETL pipeline integrating 5 disparate data sources, ensuring 99.9% data quality and reducing manual data processing time by 30 hours weekly</li>
+                        <li>Conducted A/B testing and statistical analysis to optimize operational processes, resulting in 18% efficiency improvement valued at $150K annually</li>
+                        <li>Trained 25+ technical and non-technical staff on data analysis tools, SQL queries, and dashboard interpretation, improving team data literacy by 60%</li>
+                    </ul>
+                </div>
+                
+                <div class="job">
+                    <div class="job-header">
+                        <div class="job-title">Business Data Analyst</div>
+                        <div class="company-line"><span class="company">Cold Bore Technology</span>, Edmonton, AB | 2016 - 2021</div>
+                    </div>
+                    <ul>
+                        <li>Pioneered data-driven approach to anomaly detection using statistical methods and pattern recognition, reducing false alerts by 60% while maintaining 100% identification of critical events</li>
+                        <li>Analyzed 10,000+ operational records using SQL and Python to identify process bottlenecks, implementing solutions that improved efficiency by 30% ($250K annual value)</li>
+                        <li>Designed custom Tableau dashboards and executive reports visualizing complex performance metrics for non-technical stakeholders, enabling data-driven strategic planning</li>
+                        <li>Collaborated with engineering and operations teams to develop 15+ new KPIs and monitoring protocols, improving visibility into business performance</li>
+                        <li>Managed end-to-end data quality assurance program for 500+ data collection points, maintaining 99.9% accuracy through automated validation scripts</li>
+                    </ul>
+                </div>
+                
+                <div class="job">
+                    <div class="job-header">
+                        <div class="job-title">Operations Data Analyst</div>
+                        <div class="company-line"><span class="company">Halliburton</span>, Various Locations, Canada | 2011 - 2015</div>
+                    </div>
+                    <ul>
+                        <li>Analyzed real-time operational data streams to optimize technical processes, achieving industry-leading efficiency metrics and 15% performance improvement</li>
+                        <li>Built Excel-based reporting systems and dashboards tracking project KPIs, enabling project managers to make data-informed decisions that improved on-time delivery by 22%</li>
+                        <li>Conducted root cause analysis on operational incidents using statistical methods, identifying trends that led to process improvements saving $180K annually</li>
+                        <li>Maintained comprehensive data documentation and quality control protocols ensuring 100% regulatory compliance across 50+ projects</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>Education & Certifications</h2>
+                <div class="edu-item">
+                    <h3>Google Data Analytics Professional Certificate</h3>
+                    <p>Google Career Certificates | Completed 2024</p>
+                </div>
+                <div class="edu-item">
+                    <h3>Bachelor of Science in Chemistry</h3>
+                    <p>King's University, Edmonton, Alberta</p>
+                </div>
+                <div class="edu-item">
+                    <h3>Technical Training</h3>
+                    <p class="cert-list">Complete SQL Bootcamp • Python Programming & Data Analysis • Machine Learning Fundamentals • Data Visualization Specialization • Statistical Analysis with R</p>
+                </div>
+            </div>
+            
+            <div class="section achievements">
+                <h2>Key Achievements</h2>
+                <ul>
+                    <li>Delivered $500K+ in cost savings through predictive analytics and process optimization initiatives</li>
+                    <li>Achieved 85% accuracy rate in predictive models enabling proactive business interventions</li>
+                    <li>Reduced data processing time by 40% through automation, freeing 30 hours weekly for strategic analysis</li>
+                    <li>Improved operational efficiency by 30% through data-driven process improvements valued at $400K annually</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- VERSION 2: DATA SCIENTIST -->
+        <div id="scientist" class="resume">
+            <div class="header">
+                <h1>KALEB ENDALE</h1>
+                <div class="tagline">Data Scientist | Machine Learning & Predictive Analytics | 13 Years Solving Complex Problems</div>
+                <div class="contact">
+                    <span>Edmonton, AB</span> |
+                    <span>kalebendale@protonmail.com</span> |
+                    <span>780-964-6896</span>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>Professional Summary</h2>
+                <p class="summary">Data Scientist with 13+ years developing production-grade machine learning models and advanced analytics solutions that deliver measurable business impact. Expert in Python, R, and statistical modeling with proven success building predictive maintenance systems, anomaly detection algorithms, and time-series forecasting models. Strong foundation in applied statistics, signal processing, and deep learning with track record deploying scalable ML solutions that prevented $500K+ in operational losses. Specialized in translating complex analytical problems into production-ready systems.</p>
+            </div>
+            
+            <div class="section">
+                <h2>Technical Skills</h2>
+                <div class="skills-grid">
+                    <div class="skill-cat">
+                        <h3>Machine Learning & AI</h3>
+                        <p>Python (scikit-learn, TensorFlow, Keras), Neural Networks, Random Forests, XGBoost, Gradient Boosting, SVM, K-Means Clustering, PCA, Feature Engineering, Hyperparameter Tuning, Model Deployment</p>
+                    </div>
+                    <div class="skill-cat">
+                        <h3>Statistical Analysis & Mathematics</h3>
+                        <p>Hypothesis Testing, Regression Analysis (Linear, Logistic, Polynomial), Time-Series Forecasting (ARIMA, Prophet), Signal Processing (FFT, Wavelet), Bayesian Methods, A/B Testing, Experimental Design</p>
+                    </div>
+                    <div class="skill-cat">
+                        <h3>Programming & Data Engineering</h3>
+                        <p>Python (NumPy, pandas, scikit-learn, Matplotlib), R (caret, dplyr, ggplot2), SQL, Git, REST APIs, ETL Pipelines, Data Wrangling, Big Data Processing</p>
+                    </div>
+                    <div class="skill-cat">
+                        <h3>Tools & Platforms</h3>
+                        <p>Jupyter Notebooks, Linux, Docker, Cloud Computing, SQL Server, PostgreSQL, Tableau, Power BI, Model Monitoring, MLOps</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>Machine Learning Projects</h2>
+                
+                <div class="job">
+                    <div class="job-header">
+                        <div class="job-title">Predictive Maintenance System (Production)</div>
+                        <div class="company-line">2022-2024 | Python, scikit-learn, XGBoost, SQL</div>
+                    </div>
+                    <ul>
+                        <li>Developed ensemble ML model combining Random Forest and XGBoost algorithms predicting equipment failures 72 hours in advance with 85% accuracy and 0.82 F1-score</li>
+                        <li>Engineered 45+ features from time-series sensor data using sliding windows, statistical aggregations, and domain knowledge, improving baseline model performance by 28%</li>
+                        <li>Implemented automated retraining pipeline with model monitoring and drift detection, maintaining production accuracy >80% over 18-month deployment period</li>
+                        <li>Delivered $500K+ in cost savings through prevented downtime and optimized maintenance scheduling, achieving 3.2x ROI</li>
+                        <li>Built REST API for model serving and integrated with monitoring dashboards for real-time predictions</li>
+                    </ul>
+                </div>
+                
+                <div class="job">
+                    <div class="job-header">
+                        <div class="job-title">Acoustic Anomaly Detection System (R&D)</div>
+                        <div class="company-line">2019-2021 | Python, TensorFlow, Signal Processing</div>
+                    </div>
+                    <ul>
+                        <li>Built unsupervised learning algorithm using autoencoders and Isolation Forests for real-time anomaly detection in high-frequency acoustic data (10kHz sampling rate)</li>
+                        <li>Applied advanced signal processing techniques (FFT, STFT, wavelet transforms) extracting 60+ frequency-domain features for ML model training</li>
+                        <li>Reduced false positive rate by 60% (from 15% to 6%) while maintaining 100% detection of critical events through threshold optimization and ensemble methods</li>
+                        <li>Implemented online learning approach enabling model adaptation to changing operational conditions without complete retraining</li>
+                        <li>Published internal technical paper detailing algorithm performance and deployment strategy</li>
+                    </ul>
+                </div>
+                
+                <div class="job">
+                    <div class="job-header">
+                        <div class="job-title">Real-Time Analytics Platform (Infrastructure)</div>
+                        <div class="company-line">2021-2023 | Python, SQL Server, Cloud Architecture</div>
+                    </div>
+                    <ul>
+                        <li>Architected scalable data pipeline processing 1M+ events daily with <1 second latency using Python, SQL, and cloud infrastructure</li>
+                        <li>Integrated 5 disparate data sources implementing real-time feature engineering and automated data quality checks</li>
+                        <li>Built comprehensive monitoring system tracking model performance (accuracy, precision, recall), data drift, and system health metrics</li>
+                        <li>Achieved 99.9% system uptime and maintained data integrity across distributed infrastructure serving 200+ daily users</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>Professional Experience</h2>
+                
+                <div class="job">
+                    <div class="job-header">
+                        <div class="job-title">Data Scientist & Machine Learning Engineer</div>
+                        <div class="company-line"><span class="company">Cold Bore Technology</span>, Edmonton, AB | 2021 - 2024</div>
+                    </div>
+                    <ul>
+                        <li>Developed and deployed 3 production ML models for predictive maintenance and anomaly detection, processing 1M+ daily predictions</li>
+                        <li>Conducted advanced statistical analysis on high-dimensional time-series data (100+ variables) using Python and R to extract actionable patterns</li>
+                        <li>Built automated ML pipeline for model training, cross-validation, hyperparameter tuning, and deployment reducing model development time by 45%</li>
+                        <li>Performed feature engineering, selection, and dimensionality reduction (PCA, t-SNE) on datasets with 1000+ raw features</li>
+                        <li>Mentored 4 junior data scientists on ML best practices, code review, and production deployment strategies</li>
+                    </ul>
+                </div>
+                
+                <div class="job">
+                    <div class="job-header">
+                        <div class="job-title">Data Scientist (Analytics & Research)</div>
+                        <div class="company-line"><span class="company">Cold Bore Technology</span>, Edmonton, AB | 2016 - 2021</div>
+                    </div>
+                    <ul>
+                        <li>Pioneered statistical methods for pattern recognition in sensor data using clustering algorithms (K-Means, DBSCAN) and classification models</li>
+                        <li>Developed time-series forecasting models (ARIMA, Prophet) for operational optimization achieving MAPE <12% on production data</li>
+                        <li>Performed exploratory data analysis (EDA) on datasets containing 100K+ records, identifying correlations and trends driving business strategy</li>
+                        <li>Created automated reporting systems using statistical modeling and hypothesis testing to validate business assumptions</li>
+                    </ul>
+                </div>
+                
+                <div class="job">
+                    <div class="job-header">
+                        <div class="job-title">Chemical Analyst & Researcher</div>
+                        <div class="company-line"><span class="company">King's University</span>, Edmonton, AB | 2010 - 2011</div>
+                    </div>
+                    <ul>
+                        <li>Conducted quantitative analysis using chromatography (HPLC, GC) and spectroscopy (UV-Vis, IR) generating datasets for statistical modeling</li>
+                        <li>Developed and validated analytical methods following scientific methodology and experimental design principles</li>
+                        <li>Authored technical research papers applying statistical analysis to experimental results</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>Education & Professional Development</h2>
+                <div class="edu-item">
+                    <h3>Bachelor of Science in Chemistry</h3>
+                    <p>King's University, Edmonton, Alberta</p>
+                    <p>Foundation in quantitative analysis, experimental design, statistical methods, and scientific computing</p>
+                </div>
+                <div class="edu-item">
+                    <h3>Machine Learning & Data Science Specializations</h3>
+                    <p class="cert-list">Machine Learning A-Z (Udemy) • Neural Networks Bootcamp • Artificial Intelligence & LLM Development • Google Data Analytics Certificate • Advanced Statistical Analysis with R • Complete SQL & Database Management</p>
+                </div>
+            </div>
+            
+            <div class="section achievements">
+                <h2>Technical Achievements</h2>
+                <ul>
+                    <li>85% accuracy with 0.82 F1-score on predictive maintenance model deployed in production environment</li>
+                    <li>60% reduction in false positive alerts (15% → 6%) through advanced anomaly detection algorithms</li>
+                    <li>$500K+ in prevented downtime through ML-driven predictive analytics delivering 3.2x ROI</li>
+                    <li>Published proprietary algorithms for pattern recognition and signal processing in acoustic data</li>
+                    <li>Built scalable infrastructure processing 1M+ events daily with 99.9% uptime and sub-second latency</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- VERSION 3: ENERGY DATA -->
+        <div id="energy" class="resume">
+            <div class="header">
+                <h1>KALEB ENDALE</h1>
+                <div class="tagline">Energy Data Analyst | Bridging Operations & Analytics | 13 Years Energy Sector Expertise</div>
+                <div class="contact">
+                    <span>Edmonton, AB</span> |
+                    <span>kalebendale@protonmail.com</span> |
+                    <span>780-964-6896</span>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>Professional Summary</h2>
+                <p class="summary">Energy sector data specialist with 13+ years bridging field operations and advanced analytics in oil & gas upstream operations. Deep technical expertise in acoustic monitoring, MWD/LWD technologies, SAGD operations, and hydraulic fracturing data analysis. Proven ability to transform sensor/IoT data and operational datasets into actionable insights for asset integrity, production optimization, and safety enhancement. Uniquely positioned to drive digital transformation initiatives with comprehensive understanding of operational realities, regulatory compliance, and modern data science. Track record delivering $500K+ in cost savings through predictive analytics and process optimization. Currently focused on applying analytics to energy transition and decarbonization challenges.</p>
+            </div>
+            
+            <div class="section">
+                <h2>Core Competencies</h2>
+                <div class="skills-grid">
+                    <div class="skill-cat">
+                        <h3>Energy Operations & Technology</h3>
+                        <p>MWD/LWD, SAGD Operations, Hydraulic Fracturing, Frac Monitoring, Well Integrity Assessment, Acoustic Monitoring, RTOC Management, Drilling Operations, SCADA Systems, Formation Evaluation</p>
+                    </div>
+                    <div class="skill-cat">
+                        <h3>Data Analytics & Programming</h3>
+                        <p>Python (pandas, NumPy, scikit-learn), SQL, R, Tableau, Machine Learning, Time-Series Analysis, Predictive Maintenance, Statistical Analysis, Signal Processing, IoT/Sensor Data</p>
+                    </div>
+                    <div class="skill-cat">
+                        <h3>Safety, Compliance & Regulatory</h3>
+                        <p>H2S Alive, WHMIS, TDG, Petroleum Safety Training, Environmental Monitoring, AER Reporting, Incident Investigation, Risk Assessment, Emergency Response, Process Safety Management</p>
+                    </div>
+                    <div class="skill-cat">
+                        <h3>Industrial Systems & Infrastructure</h3>
+                        <p>Distributed Sensing, Remote Monitoring, Cloud Platforms, Data Acquisition Systems, Industrial IoT, TCP/IP Networking, Real-Time Data Streams, SCADA Integration, Equipment Diagnostics</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>Professional Experience</h2>
+                
+                <div class="job">
+                    <div class="job-header">
+                        <div class="job-title">Remote Technical Operations Center (RTOC) Specialist / Data Analyst</div>
+                        <div class="company-line"><span class="company">Cold Bore Technology</span>, Edmonton, AB | 2021 - 2024</div>
+                    </div>
+                    <ul>
+                        <li>Managed 24/7 RTOC providing technical support for acoustic monitoring systems across 500+ wells in North America, maintaining 99.9% system uptime and ensuring zero safety incidents</li>
+                        <li>Developed Python-based real-time analytics tools for frac tree monitoring analyzing pressure (0-15,000 psi), flow, and acoustic data, enabling proactive intervention that prevented 15 well integrity issues valued at $2M+</li>
+                        <li>Built predictive maintenance models using machine learning (scikit-learn) and time-series analysis that forecasted equipment failures 72 hours in advance with 85% accuracy, reducing unplanned downtime by 25% ($500K+ savings)</li>
+                        <li>Created automated reporting systems processing 1M+ daily sensor readings for well integrity assessment, regulatory compliance, and operational optimization</li>
+                        <li>Analyzed multi-stage hydraulic fracturing data identifying optimization opportunities that improved treatment efficiency by 12% across 80+ wells</li>
+                        <li>Collaborated with completions engineers, field operators, and drilling teams to troubleshoot complex technical issues remotely, achieving 92% first-call resolution rate</li>
+                        <li>Trained 35+ field personnel on equipment operation, data interpretation, acoustic analysis, and safety protocols</li>
+                    </ul>
+                </div>
+                
+                <div class="job">
+                    <div class="job-header">
+                        <div class="job-title">Sonic Analyzer & Field Data Specialist</div>
+                        <div class="company-line"><span class="company">Cold Bore Technology</span>, Edmonton, AB | 2016 - 2021</div>
+                    </div>
+                    <ul>
+                        <li>Pioneered acoustic data analysis methods for well integrity assessment and hydraulic fracturing optimization across 500+ wells in Western Canadian Sedimentary Basin (WCSB)</li>
+                        <li>Deployed and operated distributed acoustic sensing (DAS) systems for real-time monitoring of multi-stage completions, providing critical data for geosteering and treatment optimization decisions</li>
+                        <li>Built custom Tableau dashboards integrating pressure, temperature, flow, and acoustic data for real-time visualization enabling immediate response to well integrity threats</li>
+                        <li>Led field operations for SAGD projects coordinating with operators, reservoir engineers, and Alberta Energy Regulator (AER) ensuring regulatory compliance</li>
+                        <li>Developed standard operating procedures (SOPs) and technical documentation for acoustic monitoring in completion operations adopted company-wide</li>
+                        <li>Managed sensor deployment, calibration, data acquisition, and quality control in challenging field environments (H2S, high-pressure, remote locations)</li>
+                        <li>Conducted root cause analysis on 25+ well integrity incidents using acoustic signatures and pressure data, identifying failure mechanisms and preventive measures</li>
+                    </ul>
+                </div>
+                
+                <div class="job">
+                    <div class="job-header">
+                        <div class="job-title">MWD/LWD Field Engineer</div>
+                        <div class="company-line"><span class="company">Halliburton</span>, Various Locations, Canada | 2011 - 2015</div>
+                    </div>
+                    <ul>
+                        <li>Led technical operations for Steam Assisted Gravity Drainage (SAGD) well pairs across 40+ pad sites in Alberta oil sands, achieving industry-leading drilling efficiency metrics</li>
+                        <li>Operated Measurement While Drilling (MWD) and Logging While Drilling (LWD) tools including Magnetic Guided Tools (MGT) for precise wellbore placement maintaining <1m wellbore separation accuracy</li>
+                        <li>Successfully executed company's first underbalanced drilling (UBD) project using GABI and Pressure While Drilling (PWD) technologies in high-pressure carbonate reservoir</li>
+                        <li>Supervised real-time data acquisition, mud pulse telemetry, and formation evaluation delivering gamma ray, resistivity, and directional data for geosteering decisions</li>
+                        <li>Collaborated with directional drillers, geologists, and reservoir engineers optimizing wellbore trajectory achieving target intercepts with 98% success rate</li>
+                        <li>Maintained comprehensive well records, daily drilling reports, and regulatory submissions ensuring AER compliance</li>
+                        <li>Achieved 100% safety record across 120+ wells in high-risk environments (H2S >10ppm, pressures >5000psi, extended reach drilling)</li>
+                    </ul>
+                </div>
+                
+                <div class="job">
+                    <div class="job-header">
+                        <div class="job-title">Chemical Analyst</div>
+                        <div class="company-line"><span class="company">King's University</span>, Edmonton, AB | 2010 - 2011</div>
+                    </div>
+                    <ul>
+                        <li>Conducted chemical analyses using HPLC, GC, and spectroscopy for research applications requiring rigorous quality control</li>
+                        <li>Developed and validated analytical methods under Good Manufacturing Practice (GMP) requirements</li>
+                        <li>Applied statistical analysis to experimental data and documented results for regulatory submissions</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>Technical Achievements & Impact</h2>
+                <ul>
+                    <li><strong>Operational Excellence:</strong> Reduced equipment downtime by 25% through predictive analytics across 500+ monitoring systems, saving $500K+ annually</li>
+                    <li><strong>Safety Leadership:</strong> Maintained 100% safety record leading cross-functional teams on 150+ SAGD, completion, and drilling projects over 13-year career</li>
+                    <li><strong>Innovation:</strong> Developed proprietary acoustic analysis algorithms improving well integrity assessment accuracy by 40% and reducing false alerts by 60%</li>
+                    <li><strong>Data Infrastructure:</strong> Built real-time data pipeline processing 1M+ sensor readings daily with 99.9% uptime supporting critical operational decisions</li>
+                    <li><strong>Technical Leadership:</strong> Recognized as subject matter expert (SME) for acoustic monitoring and completion optimization in Western Canada</li>
+                    <li><strong>Cost Savings:</strong> Identified $2M+ in prevented well integrity issues through advanced analytics and real-time monitoring</li>
+                </ul>
+            </div>
+            
+            <div class="section">
+                <h2>Education & Industry Certifications</h2>
+                <div class="edu-item">
+                    <h3>Bachelor of Science in Chemistry</h3>
+                    <p>King's University, Edmonton, Alberta</p>
+                </div>
+                <div class="edu-item">
+                    <h3>Safety & Regulatory Certifications (Current)</h3>
+                    <p class="cert-list">H2S Alive • WHMIS (Workplace Hazardous Materials Information System) • TDG (Transportation of Dangerous Goods) • Petroleum Safety Training • Standard First Aid & CPR • Valid Canadian Passport with L1B U.S. Work Visa</p>
+                </div>
+                <div class="edu-item">
+                    <h3>Technical & Data Analytics Training</h3>
+                    <p class="cert-list">Google Data Analytics Professional Certificate • Machine Learning & Predictive Analytics • Advanced SQL & Database Management • Python for Data Analysis • Statistical Analysis with R • Industrial IoT & SCADA Systems</p>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>Energy Transition & Digital Transformation Focus</h2>
+                <p class="summary">Actively applying operational expertise and advanced analytics capabilities to energy transition challenges including emissions monitoring and reduction, carbon capture utilization and storage (CCUS) data analysis, methane detection and quantification, renewable energy integration, and digital transformation of traditional energy operations. Committed to leveraging technology, data science, and domain knowledge to support the energy sector's evolution toward sustainable practices while maintaining operational excellence, safety standards, and regulatory compliance.</p>
+            </div>
+        </div>
+        
+        <div class="download-area">
+            <p style="margin-bottom: 15px; color: #555; font-size: 12px;">Use Ctrl/Cmd+P or click below to save as PDF</p>
+            <button class="download-btn" onclick="window.print()">Print/Save PDF</button>
+        </div>
+    </div>
+    
+    <script>
+        function showResume(version) {
+            document.querySelectorAll('.resume').forEach(r => r.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById(version).classList.add('active');
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>
