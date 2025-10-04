@@ -249,7 +249,6 @@ html {
   font-feature-settings: "kern" 1, "liga" 1, "calt" 1, "pnum" 1, "tnum" 0, "onum" 1, "lnum" 0, "dlig" 0;
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
-  zoom: 90%;
 }
 
 /* Enhanced body with smooth transitions inspired by Arlen McCluskey */
