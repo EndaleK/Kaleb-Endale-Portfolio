@@ -419,10 +419,37 @@ li {
 }
 
 /* Enhanced Focus States */
+/* Remove default focus outline for all elements */
+*:focus {
+  outline: none;
+}
+
+/* Modern :focus-visible for keyboard navigation only */
 *:focus-visible {
+  outline: 3px solid var(--primary-color);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+  transition: outline 0.2s ease, outline-offset 0.2s ease;
+}
+
+/* Enhanced focus for interactive elements */
+.btn:focus-visible,
+.sidebar__link:focus-visible,
+.portfolio__item:focus-visible,
+.theme-toggle:focus-visible {
+  outline: 3px solid var(--primary-color);
+  outline-offset: 4px;
+  box-shadow: 0 0 0 8px rgba(100, 181, 246, 0.2);
+  transition: all 0.2s ease;
+}
+
+/* Form inputs get lighter focus styling */
+.contact__form input:focus-visible,
+.contact__form textarea:focus-visible {
   outline: 2px solid var(--primary-color);
   outline-offset: 2px;
-  border-radius: var(--radius-sm);
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 4px rgba(100, 181, 246, 0.15);
 }
 
 /* Smooth Scrolling Enhancement */
@@ -546,7 +573,9 @@ li {
   left: 0;
   top: 0;
   width: var(--sidebar-width);
-  height: 100vh;
+  height: 100vh; /* Fallback for older browsers */
+  height: 100svh; /* Small viewport height - UI shown */
+  height: 100dvh; /* Dynamic viewport height - preferred */
   background:
     linear-gradient(165deg,
       rgba(30, 41, 59, 0.97) 0%,
@@ -1041,11 +1070,13 @@ li {
 
 /* Intro Section */
 .intro {
-  min-height: 97.75vh;
+  min-height: 100vh; /* Fallback for older browsers */
+  min-height: 100svh; /* Small viewport height - UI shown */
+  min-height: 100dvh; /* Dynamic viewport height - preferred */
   display: flex;
   align-items: center;
   justify-content: center;
-  background: 
+  background:
     linear-gradient(135deg, #64b5f6 0%, #42a5f5 30%, #2196f3 60%, #64b5f6 100%),
     radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
     radial-gradient(circle at 75% 75%, rgba(100, 181, 246, 0.1) 0%, transparent 50%);
@@ -2341,6 +2372,8 @@ section {
   border: 1px solid transparent;
   aspect-ratio: 1.2/1;
   isolation: isolate;
+  /* CSS Containment for performance optimization */
+  contain: layout style paint;
 }
 
 .portfolio__item:hover {
@@ -3159,21 +3192,56 @@ section {
   opacity: 1;
 }
 
-/* Touch device optimizations */
+/* Touch device optimizations - WCAG 2.5.5 Target Size (Enhanced) */
 @media (pointer: coarse) {
+  /* All interactive elements minimum 44x44px (WCAG Level AAA) */
   .btn {
     min-height: 48px;
+    min-width: 48px;
+    padding: var(--space-md) var(--space-lg);
     touch-action: manipulation;
   }
-  
+
   .sidebar__link {
     min-height: 48px;
+    min-width: 48px;
+    padding: var(--space-3) var(--space-4);
     display: flex;
     align-items: center;
     touch-action: manipulation;
   }
-  
+
   .theme-toggle {
+    min-width: 48px;
+    min-height: 48px;
+    touch-action: manipulation;
+  }
+
+  /* Portfolio items */
+  .portfolio__item {
+    min-height: 200px;
+    touch-action: manipulation;
+  }
+
+  /* Contact form inputs */
+  .contact__form input,
+  .contact__form textarea,
+  .contact__form button {
+    min-height: 48px;
+    touch-action: manipulation;
+  }
+
+  /* Portfolio tags and filters */
+  .tag,
+  .filter__btn {
+    min-height: 44px;
+    min-width: 44px;
+    padding: var(--space-2) var(--space-4);
+    touch-action: manipulation;
+  }
+
+  /* Social links */
+  .social__link {
     min-width: 48px;
     min-height: 48px;
     touch-action: manipulation;
