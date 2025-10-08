@@ -3,7 +3,7 @@
 Professional portfolio website showcasing 13+ years of oil & gas experience combined with modern data science capabilities.
 
 ## 🌟 Live Website
-**Visit the live portfolio:** [https://EndaleK.github.io/portfolio](https://EndaleK.github.io/portfolio)
+**Visit the live portfolio:** [https://EndaleK.github.io/Kaleb-Endale-Portfolio](https://EndaleK.github.io/Kaleb-Endale-Portfolio)
 
 ## 📋 About
 This portfolio demonstrates my unique blend of:
@@ -106,10 +106,10 @@ portfolio-v2/
 ### Local Development
 ```bash
 # Clone the repository
-git clone https://github.com/EndaleK/portfolio.git
+git clone https://github.com/EndaleK/Kaleb-Endale-Portfolio.git
 
 # Navigate to directory
-cd portfolio
+cd Kaleb-Endale-Portfolio
 
 # Start local server
 python3 -m http.server 8000
