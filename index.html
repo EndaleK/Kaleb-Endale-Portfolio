@@ -249,129 +249,297 @@
                 <div class="container">
                     <h2 class="section__title animate-on-scroll">Portfolio</h2>
                     <div class="portfolio__filters animate-on-scroll">
-                        <button class="filter__btn filter__btn--active" data-filter="*">All</button>
-                        <button class="filter__btn" data-filter="data-analysis">Data Analysis</button>
-                        <button class="filter__btn" data-filter="web-dev">Web Development</button>
-                        <button class="filter__btn" data-filter="automation">Automation</button>
+                        <button class="filter__btn filter__btn--active" data-filter="*"><span>All</span></button>
+                        <button class="filter__btn" data-filter="data-analysis"><span>Data Analysis</span></button>
+                        <button class="filter__btn" data-filter="web-dev"><span>Web Development</span></button>
+                        <button class="filter__btn" data-filter="automation"><span>Automation</span></button>
                     </div>
                     <div class="portfolio__grid" role="list">
                         <article class="portfolio__item animate-on-scroll" data-category="data-analysis" data-delay="100">
-                            <div class="portfolio__image">
-                                <img src="images/portfolio-1.jpg" alt="Real-Time Data Pipeline Dashboard" loading="lazy">
-                                <div class="portfolio__overlay">
-                                    <div class="portfolio__content">
-                                        <h3>Real-Time Data Pipeline</h3>
-                                        <p class="portfolio__challenge">Challenge: Manual data aggregation from 5 disparate sources causing 4+ hour delays in critical operational decisions and risking delayed response to well integrity issues</p>
-                                        <p class="portfolio__solution">Built end-to-end ETL pipeline using Python (Pandas, SQLAlchemy) with PostgreSQL backend, automated data validation, and real-time Tableau dashboard—reducing processing time by 75% and enabling immediate visibility into 500+ well operations</p>
-                                        <div class="portfolio__metrics">
-                                            <div class="metric">
-                                                <span class="metric__value">75%</span>
-                                                <span class="metric__label">Time Reduction</span>
-                                            </div>
-                                            <div class="metric">
-                                                <span class="metric__value">1M+</span>
-                                                <span class="metric__label">Daily Data Points</span>
-                                            </div>
-                                            <div class="metric">
-                                                <span class="metric__value">99.9%</span>
-                                                <span class="metric__label">Accuracy</span>
-                                            </div>
+                            <div class="portfolio__card">
+                                <div class="portfolio__card-header">
+                                    <div class="portfolio__icon">
+                                        <i class="ph-database"></i>
+                                    </div>
+                                    <h3 class="portfolio__title">Real-Time Data Pipeline</h3>
+                                </div>
+
+                                <div class="portfolio__card-body">
+                                    <div class="portfolio__challenge-section">
+                                        <h4 class="section-label">Challenge</h4>
+                                        <p>Manual data aggregation from 5 disparate sources causing 4+ hour delays in critical operational decisions and risking delayed response to well integrity issues</p>
+                                    </div>
+
+                                    <div class="portfolio__solution-section">
+                                        <h4 class="section-label">Solution</h4>
+                                        <p>Built end-to-end ETL pipeline using Python (Pandas, SQLAlchemy) with PostgreSQL backend, automated data validation, and real-time Tableau dashboard—reducing processing time by 75% and enabling immediate visibility into 500+ well operations</p>
+                                    </div>
+
+                                    <div class="portfolio__metrics">
+                                        <div class="metric">
+                                            <span class="metric__value">75%</span>
+                                            <span class="metric__label">Time Reduction</span>
                                         </div>
-                                        <div class="portfolio__tech">
-                                            <span>Python</span>
-                                            <span>SQL</span>
-                                            <span>Tableau</span>
+                                        <div class="metric">
+                                            <span class="metric__value">1M+</span>
+                                            <span class="metric__label">Daily Data Points</span>
                                         </div>
+                                        <div class="metric">
+                                            <span class="metric__value">99.9%</span>
+                                            <span class="metric__label">Accuracy</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="portfolio__card-footer">
+                                    <div class="portfolio__tech">
+                                        <span class="tech-tag">Python</span>
+                                        <span class="tech-tag">SQL</span>
+                                        <span class="tech-tag">Tableau</span>
                                     </div>
                                 </div>
                             </div>
                         </article>
                         <article class="portfolio__item animate-on-scroll" data-category="data-analysis" data-delay="200">
-                            <div class="portfolio__image">
-                                <img src="images/portfolio-2.jpg" alt="Predictive Maintenance Model" loading="lazy">
-                                <div class="portfolio__overlay">
-                                    <div class="portfolio__content">
-                                        <h3>Predictive Maintenance Model</h3>
-                                        <p class="portfolio__challenge">Challenge: Unexpected equipment failures at remote well sites causing $2M+ annual losses, emergency callouts, and production disruption across North American operations</p>
-                                        <p class="portfolio__solution">Developed ensemble machine learning model combining Random Forest and XGBoost classifiers trained on 18 months of sensor data (pressure, temperature, vibration, acoustic)—achieving 85% prediction accuracy with 72-hour lead time, enabling proactive maintenance scheduling and reducing unplanned downtime by 25%</p>
-                                        <div class="portfolio__metrics">
-                                            <div class="metric">
-                                                <span class="metric__value">85%</span>
-                                                <span class="metric__label">Accuracy</span>
-                                            </div>
-                                            <div class="metric">
-                                                <span class="metric__value">$500K+</span>
-                                                <span class="metric__label">Cost Savings</span>
-                                            </div>
-                                            <div class="metric">
-                                                <span class="metric__value">72hr</span>
-                                                <span class="metric__label">Early Warning</span>
-                                            </div>
+                            <div class="portfolio__card">
+                                <div class="portfolio__card-header">
+                                    <div class="portfolio__icon">
+                                        <i class="ph-brain"></i>
+                                    </div>
+                                    <h3 class="portfolio__title">Predictive Maintenance Model</h3>
+                                </div>
+
+                                <div class="portfolio__card-body">
+                                    <div class="portfolio__challenge-section">
+                                        <h4 class="section-label">Challenge</h4>
+                                        <p>Unexpected equipment failures at remote well sites causing $2M+ annual losses, emergency callouts, and production disruption across North American operations</p>
+                                    </div>
+
+                                    <div class="portfolio__solution-section">
+                                        <h4 class="section-label">Solution</h4>
+                                        <p>Developed ensemble machine learning model combining Random Forest and XGBoost classifiers trained on 18 months of sensor data (pressure, temperature, vibration, acoustic)—achieving 85% prediction accuracy with 72-hour lead time, enabling proactive maintenance scheduling and reducing unplanned downtime by 25%</p>
+                                    </div>
+
+                                    <div class="portfolio__metrics">
+                                        <div class="metric">
+                                            <span class="metric__value">85%</span>
+                                            <span class="metric__label">Accuracy</span>
                                         </div>
-                                        <div class="portfolio__tech">
-                                            <span>Python</span>
-                                            <span>scikit-learn</span>
-                                            <span>TensorFlow</span>
+                                        <div class="metric">
+                                            <span class="metric__value">$500K+</span>
+                                            <span class="metric__label">Cost Savings</span>
                                         </div>
+                                        <div class="metric">
+                                            <span class="metric__value">72hr</span>
+                                            <span class="metric__label">Early Warning</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="portfolio__card-footer">
+                                    <div class="portfolio__tech">
+                                        <span class="tech-tag">Python</span>
+                                        <span class="tech-tag">scikit-learn</span>
+                                        <span class="tech-tag">TensorFlow</span>
                                     </div>
                                 </div>
                             </div>
                         </article>
                         <article class="portfolio__item animate-on-scroll" data-category="automation" data-delay="400">
-                            <div class="portfolio__image">
-                                <img src="images/portfolio-4.jpg" alt="Automated Reporting System" loading="lazy">
-                                <div class="portfolio__overlay">
-                                    <div class="portfolio__content">
-                                        <h3>Automated Reporting System</h3>
-                                        <p class="portfolio__challenge">Challenge: Manual compilation of daily operations reports consuming 8+ hours across team, delaying critical information distribution to stakeholders and creating bottlenecks in decision-making</p>
-                                        <p class="portfolio__solution">Engineered Python automation framework leveraging SQL queries and Power BI APIs to extract, transform, and visualize frac tree data (pressure, flow rates, acoustic signatures)—automatically generating formatted reports and distributing via email, reducing reporting time by 40% and ensuring stakeholder visibility within 1 hour of shift end</p>
-                                        <div class="portfolio__metrics">
-                                            <div class="metric">
-                                                <span class="metric__value">40%</span>
-                                                <span class="metric__label">Time Saved</span>
-                                            </div>
-                                            <div class="metric">
-                                                <span class="metric__value">24/7</span>
-                                                <span class="metric__label">Monitoring</span>
-                                            </div>
-                                            <div class="metric">
-                                                <span class="metric__value">100%</span>
-                                                <span class="metric__label">Automation</span>
-                                            </div>
+                            <div class="portfolio__card">
+                                <div class="portfolio__card-header">
+                                    <div class="portfolio__icon">
+                                        <i class="ph-robot"></i>
+                                    </div>
+                                    <h3 class="portfolio__title">Automated Reporting System</h3>
+                                </div>
+
+                                <div class="portfolio__card-body">
+                                    <div class="portfolio__challenge-section">
+                                        <h4 class="section-label">Challenge</h4>
+                                        <p>Manual compilation of daily operations reports consuming 8+ hours across team, delaying critical information distribution to stakeholders and creating bottlenecks in decision-making</p>
+                                    </div>
+
+                                    <div class="portfolio__solution-section">
+                                        <h4 class="section-label">Solution</h4>
+                                        <p>Engineered Python automation framework leveraging SQL queries and Power BI APIs to extract, transform, and visualize frac tree data (pressure, flow rates, acoustic signatures)—automatically generating formatted reports and distributing via email, reducing reporting time by 40% and ensuring stakeholder visibility within 1 hour of shift end</p>
+                                    </div>
+
+                                    <div class="portfolio__metrics">
+                                        <div class="metric">
+                                            <span class="metric__value">40%</span>
+                                            <span class="metric__label">Time Saved</span>
                                         </div>
-                                        <div class="portfolio__tech">
-                                            <span>Python</span>
-                                            <span>SQL</span>
-                                            <span>Power BI</span>
+                                        <div class="metric">
+                                            <span class="metric__value">24/7</span>
+                                            <span class="metric__label">Monitoring</span>
                                         </div>
+                                        <div class="metric">
+                                            <span class="metric__value">100%</span>
+                                            <span class="metric__label">Automation</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="portfolio__card-footer">
+                                    <div class="portfolio__tech">
+                                        <span class="tech-tag">Python</span>
+                                        <span class="tech-tag">SQL</span>
+                                        <span class="tech-tag">Power BI</span>
                                     </div>
                                 </div>
                             </div>
                         </article>
-                        <article class="portfolio__item animate-on-scroll" data-category="web-dev" data-delay="500">
-                            <div class="portfolio__image">
-                                <img src="images/portfolio-5.jpg" alt="Family Calendar Application" loading="lazy">
-                                <div class="portfolio__overlay">
-                                    <h3>Family Calendar Application</h3>
-                                    <p>Full-stack calendar application with user authentication, event management, and responsive design</p>
+                        <article class="portfolio__item animate-on-scroll" data-category="data-analysis" data-delay="500">
+                            <div class="portfolio__card">
+                                <div class="portfolio__card-header">
+                                    <div class="portfolio__icon">
+                                        <i class="ph-chart-line"></i>
+                                    </div>
+                                    <h3 class="portfolio__title">Facies Data Classification</h3>
+                                </div>
+
+                                <div class="portfolio__card-body">
+                                    <div class="portfolio__challenge-section">
+                                        <h4 class="section-label">Challenge</h4>
+                                        <p>Accurate geological facies classification from well log data is critical for reservoir characterization and production optimization in oil & gas operations</p>
+                                    </div>
+
+                                    <div class="portfolio__solution-section">
+                                        <h4 class="section-label">Solution</h4>
+                                        <p>Developed machine learning classification model using ensemble methods to predict geological facies from well log data (gamma ray, resistivity, neutron porosity)—enabling accurate subsurface formation identification for reservoir modeling and drilling decisions</p>
+                                    </div>
+
+                                    <div class="portfolio__metrics">
+                                        <div class="metric">
+                                            <span class="metric__value">ML</span>
+                                            <span class="metric__label">Classification</span>
+                                        </div>
+                                        <div class="metric">
+                                            <span class="metric__value">9</span>
+                                            <span class="metric__label">Facies Types</span>
+                                        </div>
+                                        <div class="metric">
+                                            <span class="metric__value">Multi</span>
+                                            <span class="metric__label">Well Logs</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="portfolio__card-footer">
                                     <div class="portfolio__tech">
-                                        <span>React</span>
-                                        <span>Node.js</span>
-                                        <span>MongoDB</span>
+                                        <span class="tech-tag">Python</span>
+                                        <span class="tech-tag">scikit-learn</span>
+                                        <span class="tech-tag">Pandas</span>
+                                    </div>
+                                    <div class="portfolio__links">
+                                        <a href="https://github.com/EndaleK/Facies_data" target="_blank" rel="noopener" class="portfolio__link">
+                                            <i class="ph-github-logo"></i> GitHub
+                                        </a>
+                                        <a href="facies-classification-report.html#executive-summary" target="_blank" class="portfolio__link">
+                                            <i class="ph-file-text"></i> Report
+                                        </a>
                                     </div>
                                 </div>
                             </div>
                         </article>
                         <article class="portfolio__item animate-on-scroll" data-category="web-dev" data-delay="600">
-                            <div class="portfolio__image">
-                                <img src="images/portfolio-6.jpg" alt="Modern Portfolio Website" loading="lazy">
-                                <div class="portfolio__overlay">
-                                    <h3>Modern Portfolio Website</h3>
-                                    <p>Performance-optimized portfolio with dark/light themes, canvas animations, and intersection observer scroll effects</p>
+                            <div class="portfolio__card">
+                                <div class="portfolio__card-header">
+                                    <div class="portfolio__icon">
+                                        <i class="ph-browser"></i>
+                                    </div>
+                                    <h3 class="portfolio__title">Modern Portfolio Website</h3>
+                                </div>
+
+                                <div class="portfolio__card-body">
+                                    <div class="portfolio__challenge-section">
+                                        <h4 class="section-label">Challenge</h4>
+                                        <p>Create a professional, performant portfolio showcasing technical skills with engaging user experience and accessibility</p>
+                                    </div>
+
+                                    <div class="portfolio__solution-section">
+                                        <h4 class="section-label">Solution</h4>
+                                        <p>Performance-optimized single-page application with dark/light theme system, canvas particle animations, intersection observer scroll effects, and mobile-first responsive design</p>
+                                    </div>
+
+                                    <div class="portfolio__metrics">
+                                        <div class="metric">
+                                            <span class="metric__value">100%</span>
+                                            <span class="metric__label">Vanilla JS</span>
+                                        </div>
+                                        <div class="metric">
+                                            <span class="metric__value">A11y</span>
+                                            <span class="metric__label">Accessible</span>
+                                        </div>
+                                        <div class="metric">
+                                            <span class="metric__value">Fast</span>
+                                            <span class="metric__label">Performance</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="portfolio__card-footer">
                                     <div class="portfolio__tech">
-                                        <span>JavaScript</span>
-                                        <span>CSS3</span>
-                                        <span>Canvas API</span>
+                                        <span class="tech-tag">JavaScript</span>
+                                        <span class="tech-tag">CSS3</span>
+                                        <span class="tech-tag">Canvas API</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="portfolio__item portfolio__item--featured animate-on-scroll" data-category="web-dev" data-delay="700">
+                            <div class="portfolio__card portfolio__card--featured">
+                                <div class="portfolio__featured-badge">
+                                    <i class="ph-star"></i> Featured Project
+                                </div>
+                                <div class="portfolio__card-header">
+                                    <div class="portfolio__icon portfolio__icon--ai">
+                                        <i class="ph-lightning"></i>
+                                    </div>
+                                    <h3 class="portfolio__title">Synaptic - AI-Powered Learning Platform</h3>
+                                </div>
+
+                                <div class="portfolio__card-body">
+                                    <div class="portfolio__challenge-section">
+                                        <h4 class="section-label">Challenge</h4>
+                                        <p>Students waste hours creating study materials manually and lack personalized learning experiences. Existing tools are expensive ($20+/month), limited (20MB file size), and one-size-fits-all approaches that don't adapt to individual learning styles.</p>
+                                    </div>
+
+                                    <div class="portfolio__solution-section">
+                                        <h4 class="section-label">Solution</h4>
+                                        <p>Built full-stack SaaS platform serving 1,000+ students with 12 AI-powered study tools including flashcards, mock exams, podcasts, and interactive mind maps. Architected RAG (Retrieval Augmented Generation) system using ChromaDB and OpenAI embeddings, enabling semantic search across 80MB+ documents with 95% relevance accuracy. Implemented multi-tier AI provider architecture (OpenAI, DeepSeek, Anthropic) with intelligent routing, reducing costs by 83% while maintaining quality.</p>
+                                    </div>
+
+                                    <div class="portfolio__metrics">
+                                        <div class="metric">
+                                            <span class="metric__value">1,000+</span>
+                                            <span class="metric__label">Active Users</span>
+                                        </div>
+                                        <div class="metric">
+                                            <span class="metric__value">83%</span>
+                                            <span class="metric__label">Cost Reduction</span>
+                                        </div>
+                                        <div class="metric">
+                                            <span class="metric__value">80MB+</span>
+                                            <span class="metric__label">Document Support</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="portfolio__card-footer">
+                                    <div class="portfolio__tech">
+                                        <span class="tech-tag">Next.js 15</span>
+                                        <span class="tech-tag">TypeScript</span>
+                                        <span class="tech-tag">PostgreSQL</span>
+                                        <span class="tech-tag">ChromaDB</span>
+                                        <span class="tech-tag">OpenAI API</span>
+                                        <span class="tech-tag">LangChain</span>
+                                    </div>
+                                    <div class="portfolio__links">
+                                        <a href="https://synaptic.study" target="_blank" rel="noopener" class="portfolio__link portfolio__link--primary">
+                                            <i class="ph-arrow-square-out"></i> Live Demo
+                                        </a>
                                     </div>
                                 </div>
                             </div>
