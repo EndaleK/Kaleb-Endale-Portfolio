@@ -1,0 +1,20 @@
+{
+  "name": "portfolio-v2",
+  "version": "1.0.0",
+  "description": "Kaleb Endale's Portfolio Website",
+  "scripts": {
+    "dev": "live-server --port=3000 --open=/index.html",
+    "start": "live-server --port=3000 --open=/index.html",
+    "serve": "live-server --port=3000"
+  },
+  "keywords": [
+    "portfolio",
+    "website"
+  ],
+  "author": "Kaleb Endale",
+  "license": "MIT",
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
+}
+
