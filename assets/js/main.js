@@ -3,21 +3,34 @@ document.addEventListener('DOMContentLoaded', () => {
   // Add class to indicate JavaScript has loaded
   document.body.classList.add('js-loaded');
 
-  // Ensure page loads at intro section (landing page)
-  if (!window.location.hash || window.location.hash === '#') {
-    const mainContent = document.querySelector('.main');
-    if (mainContent) {
-      mainContent.scrollTop = 0;
-    }
-    window.scrollTo(0, 0);
-    // Set intro as active in navigation
-    const introLink = document.querySelector('a[href="#intro"]');
-    if (introLink) {
-      document.querySelectorAll('.sidebar__link').forEach(link => {
-        link.classList.remove('sidebar__link--active');
-      });
-      introLink.classList.add('sidebar__link--active');
-    }
+  // Always ensure page loads at intro section (landing page) on fresh load
+  // Clear any existing hash and scroll to top
+  if (window.location.hash) {
+    history.replaceState(null, '', window.location.pathname);
+  }
+
+  // Scroll to top immediately
+  window.scrollTo(0, 0);
+  const mainContent = document.querySelector('.main');
+  if (mainContent) {
+    mainContent.scrollTop = 0;
+  }
+
+  // Set intro as active in navigation
+  const introLink = document.querySelector('a[href="#intro"]');
+  if (introLink) {
+    document.querySelectorAll('.sidebar__link').forEach(link => {
+      link.classList.remove('sidebar__link--active');
+    });
+    introLink.classList.add('sidebar__link--active');
+  }
+
+  // Scroll to intro section after a brief delay to ensure DOM is ready
+  const introSection = document.getElementById('intro');
+  if (introSection) {
+    setTimeout(() => {
+      introSection.scrollIntoView({ behavior: 'instant', block: 'start' });
+    }, 50);
   }
 
   // Inspired by Arlen McCluskey's portfolio - Enhanced animated background
