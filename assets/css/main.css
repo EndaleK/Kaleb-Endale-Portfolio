@@ -64,7 +64,7 @@
   --space-5xl: 6.4rem;
 
   /* Layout - Optimized for 100% zoom */
-  --sidebar-width: 320px;
+  --sidebar-width: 288px;
   --content-max-width: 1200px;
   --container-padding: clamp(1rem, 4vw, 2rem);
 
@@ -583,7 +583,7 @@ li {
       rgba(30, 41, 59, 0.97) 100%),
     radial-gradient(circle at 20% 30%, rgba(100, 181, 246, 0.03) 0%, transparent 50%);
   color: var(--sidebar-text);
-  padding: 2.5rem 2rem;
+  padding: 2.25rem 1.8rem;
   display: flex;
   flex-direction: column;
   z-index: 1000;
