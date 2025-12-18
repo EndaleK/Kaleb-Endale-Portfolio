@@ -260,90 +260,41 @@
                         <button class="filter__btn" data-filter="automation"><span>Automation</span></button>
                     </div>
                     <div class="portfolio__grid" role="list">
-                        <article class="portfolio__item animate-on-scroll" data-category="web-dev" data-delay="100">
-                            <div class="portfolio__card">
+                        <article class="portfolio__item portfolio__item--featured animate-on-scroll" data-category="web-dev" data-delay="100">
+                            <div class="portfolio__card portfolio__card--featured">
+                                <div class="portfolio__featured-badge">
+                                    <i class="ph-star"></i> Featured Project
+                                </div>
                                 <div class="portfolio__card-header">
-                                    <div class="portfolio__icon">
-                                        <i class="ph-lightbulb"></i>
+                                    <div class="portfolio__icon portfolio__icon--ai">
+                                        <i class="ph-lightning"></i>
                                     </div>
-                                    <h3 class="portfolio__title">Brainwave Solutions - Digital Product Studio</h3>
+                                    <h3 class="portfolio__title">Synaptic - AI-Powered Learning Platform</h3>
                                 </div>
 
                                 <div class="portfolio__card-body">
                                     <div class="portfolio__challenge-section">
                                         <h4 class="section-label">Challenge</h4>
-                                        <p>Businesses need a trusted partner to transform ideas into polished digital products—from intelligent platforms to data-driven applications—without the overhead of building in-house teams or navigating fragmented development processes</p>
+                                        <p>Students waste hours creating study materials manually and lack personalized learning experiences. Existing tools are expensive ($20+/month), limited (20MB file size), and one-size-fits-all approaches that don't adapt to individual learning styles.</p>
                                     </div>
 
                                     <div class="portfolio__solution-section">
                                         <h4 class="section-label">Solution</h4>
-                                        <p>Co-founded digital product studio specializing in modern web and mobile applications, with expertise in intelligent platforms, data analytics solutions, and polished user experiences. Delivering end-to-end product development from concept to launch with focus on scalable architecture and intuitive design</p>
+                                        <p>Built full-stack SaaS platform serving 1,000+ students with 12 AI-powered study tools including flashcards, mock exams, podcasts, and interactive mind maps. Architected RAG (Retrieval Augmented Generation) system using ChromaDB and OpenAI embeddings, enabling semantic search across 80MB+ documents with 95% relevance accuracy. Implemented multi-tier AI provider architecture (OpenAI, DeepSeek, Anthropic) with intelligent routing, reducing costs by 83% while maintaining quality.</p>
                                     </div>
 
                                     <div class="portfolio__metrics">
                                         <div class="metric">
-                                            <span class="metric__value">Full</span>
-                                            <span class="metric__label">Stack</span>
+                                            <span class="metric__value">1,000+</span>
+                                            <span class="metric__label">Active Users</span>
                                         </div>
                                         <div class="metric">
-                                            <span class="metric__value">AI</span>
-                                            <span class="metric__label">Integrated</span>
+                                            <span class="metric__value">83%</span>
+                                            <span class="metric__label">Cost Reduction</span>
                                         </div>
                                         <div class="metric">
-                                            <span class="metric__value">UX</span>
-                                            <span class="metric__label">Focused</span>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="portfolio__card-footer">
-                                    <div class="portfolio__tech">
-                                        <span class="tech-tag">Next.js</span>
-                                        <span class="tech-tag">React</span>
-                                        <span class="tech-tag">TypeScript</span>
-                                        <span class="tech-tag">Node.js</span>
-                                        <span class="tech-tag">AI/ML</span>
-                                    </div>
-                                    <div class="portfolio__links">
-                                        <a href="https://www.brainwavesolutions.io/" target="_blank" rel="noopener" class="portfolio__link portfolio__link--primary">
-                                            <i class="ph-arrow-square-out"></i> Visit Site
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </article>
-                        <article class="portfolio__item animate-on-scroll" data-category="web-dev" data-delay="200">
-                            <div class="portfolio__card">
-                                <div class="portfolio__card-header">
-                                    <div class="portfolio__icon">
-                                        <i class="ph-cpu"></i>
-                                    </div>
-                                    <h3 class="portfolio__title">FracIQ - AI Operations Platform</h3>
-                                </div>
-
-                                <div class="portfolio__card-body">
-                                    <div class="portfolio__challenge-section">
-                                        <h4 class="section-label">Challenge</h4>
-                                        <p>RTOC operations teams struggle with fragmented vendor systems, manual reporting consuming 8+ hours daily, and lack of centralized real-time insights across hydraulic fracturing operations—leading to delayed decision-making and operational inefficiencies</p>
-                                    </div>
-
-                                    <div class="portfolio__solution-section">
-                                        <h4 class="section-label">Solution</h4>
-                                        <p>Built full-stack AI-powered operations platform integrating 13+ technical documents with RAG pipeline, automated daily reporting, smart task management with Kanban/calendar views, and centralized vendor integrations (Halliburton, Schlumberger, Liberty)—achieving <100ms API response times and 99.9% uptime SLA</p>
-                                    </div>
-
-                                    <div class="portfolio__metrics">
-                                        <div class="metric">
-                                            <span class="metric__value">13+</span>
-                                            <span class="metric__label">AI Docs</span>
-                                        </div>
-                                        <div class="metric">
-                                            <span class="metric__value">99.9%</span>
-                                            <span class="metric__label">Uptime SLA</span>
-                                        </div>
-                                        <div class="metric">
-                                            <span class="metric__value"><100ms</span>
-                                            <span class="metric__label">API Response</span>
+                                            <span class="metric__value">80MB+</span>
+                                            <span class="metric__label">Document Support</span>
                                         </div>
                                     </div>
                                 </div>
@@ -352,19 +303,20 @@
                                     <div class="portfolio__tech">
                                         <span class="tech-tag">Next.js 15</span>
                                         <span class="tech-tag">TypeScript</span>
-                                        <span class="tech-tag">Claude AI</span>
-                                        <span class="tech-tag">Prisma</span>
-                                        <span class="tech-tag">Tailwind CSS</span>
+                                        <span class="tech-tag">PostgreSQL</span>
+                                        <span class="tech-tag">ChromaDB</span>
+                                        <span class="tech-tag">OpenAI API</span>
+                                        <span class="tech-tag">LangChain</span>
                                     </div>
                                     <div class="portfolio__links">
-                                        <a href="https://fraciq.vercel.app/" target="_blank" rel="noopener" class="portfolio__link portfolio__link--primary">
+                                        <a href="https://synaptic.study" target="_blank" rel="noopener" class="portfolio__link portfolio__link--primary">
                                             <i class="ph-arrow-square-out"></i> Live Demo
                                         </a>
                                     </div>
                                 </div>
                             </div>
                         </article>
-                        <article class="portfolio__item animate-on-scroll" data-category="data-analysis" data-delay="300">
+                        <article class="portfolio__item animate-on-scroll" data-category="data-analysis" data-delay="200">
                             <div class="portfolio__card">
                                 <div class="portfolio__card-header">
                                     <div class="portfolio__icon">
@@ -409,58 +361,7 @@
                                 </div>
                             </div>
                         </article>
-                        <article class="portfolio__item animate-on-scroll" data-category="web-dev" data-delay="400">
-                            <div class="portfolio__card">
-                                <div class="portfolio__card-header">
-                                    <div class="portfolio__icon">
-                                        <i class="ph-graduation-cap"></i>
-                                    </div>
-                                    <h3 class="portfolio__title">Bitcoin Education Platform</h3>
-                                </div>
-
-                                <div class="portfolio__card-body">
-                                    <div class="portfolio__challenge-section">
-                                        <h4 class="section-label">Challenge</h4>
-                                        <p>Cryptocurrency education resources are predominantly English-only, creating barriers for non-English speaking communities to access critical financial technology knowledge and participate in the digital economy</p>
-                                    </div>
-
-                                    <div class="portfolio__solution-section">
-                                        <h4 class="section-label">Solution</h4>
-                                        <p>Developed bilingual educational web platform using Next.js with server-side rendering, offering comprehensive Bitcoin knowledge in both English and Amharic—implementing responsive design, dynamic routing, and optimized content delivery to make cryptocurrency education accessible to diverse global audiences</p>
-                                    </div>
-
-                                    <div class="portfolio__metrics">
-                                        <div class="metric">
-                                            <span class="metric__value">2</span>
-                                            <span class="metric__label">Languages</span>
-                                        </div>
-                                        <div class="metric">
-                                            <span class="metric__value">SSR</span>
-                                            <span class="metric__label">Optimized</span>
-                                        </div>
-                                        <div class="metric">
-                                            <span class="metric__value">100%</span>
-                                            <span class="metric__label">Responsive</span>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="portfolio__card-footer">
-                                    <div class="portfolio__tech">
-                                        <span class="tech-tag">Next.js</span>
-                                        <span class="tech-tag">React</span>
-                                        <span class="tech-tag">TypeScript</span>
-                                        <span class="tech-tag">CSS3</span>
-                                    </div>
-                                    <div class="portfolio__links">
-                                        <a href="https://selebitcoin.vercel.app/?lang=am" target="_blank" rel="noopener" class="portfolio__link portfolio__link--primary">
-                                            <i class="ph-arrow-square-out"></i> Live Demo
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </article>
-                        <article class="portfolio__item animate-on-scroll" data-category="data-analysis" data-delay="500">
+                        <article class="portfolio__item animate-on-scroll" data-category="data-analysis" data-delay="300">
                             <div class="portfolio__card">
                                 <div class="portfolio__card-header">
                                     <div class="portfolio__icon">
@@ -513,7 +414,162 @@
                                 </div>
                             </div>
                         </article>
+                        <article class="portfolio__item animate-on-scroll" data-category="web-dev" data-delay="400">
+                            <div class="portfolio__card">
+                                <div class="portfolio__card-header">
+                                    <div class="portfolio__icon">
+                                        <i class="ph-lightbulb"></i>
+                                    </div>
+                                    <h3 class="portfolio__title">Brainwave Solutions - Digital Product Studio</h3>
+                                </div>
+
+                                <div class="portfolio__card-body">
+                                    <div class="portfolio__challenge-section">
+                                        <h4 class="section-label">Challenge</h4>
+                                        <p>Businesses need a trusted partner to transform ideas into polished digital products—from intelligent platforms to data-driven applications—without the overhead of building in-house teams or navigating fragmented development processes</p>
+                                    </div>
+
+                                    <div class="portfolio__solution-section">
+                                        <h4 class="section-label">Solution</h4>
+                                        <p>Co-founded digital product studio specializing in modern web and mobile applications, with expertise in intelligent platforms, data analytics solutions, and polished user experiences. Delivering end-to-end product development from concept to launch with focus on scalable architecture and intuitive design</p>
+                                    </div>
+
+                                    <div class="portfolio__metrics">
+                                        <div class="metric">
+                                            <span class="metric__value">Full</span>
+                                            <span class="metric__label">Stack</span>
+                                        </div>
+                                        <div class="metric">
+                                            <span class="metric__value">AI</span>
+                                            <span class="metric__label">Integrated</span>
+                                        </div>
+                                        <div class="metric">
+                                            <span class="metric__value">UX</span>
+                                            <span class="metric__label">Focused</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="portfolio__card-footer">
+                                    <div class="portfolio__tech">
+                                        <span class="tech-tag">Next.js</span>
+                                        <span class="tech-tag">React</span>
+                                        <span class="tech-tag">TypeScript</span>
+                                        <span class="tech-tag">Node.js</span>
+                                        <span class="tech-tag">AI/ML</span>
+                                    </div>
+                                    <div class="portfolio__links">
+                                        <a href="https://www.brainwavesolutions.io/" target="_blank" rel="noopener" class="portfolio__link portfolio__link--primary">
+                                            <i class="ph-arrow-square-out"></i> Visit Site
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="portfolio__item animate-on-scroll" data-category="web-dev" data-delay="500">
+                            <div class="portfolio__card">
+                                <div class="portfolio__card-header">
+                                    <div class="portfolio__icon">
+                                        <i class="ph-cpu"></i>
+                                    </div>
+                                    <h3 class="portfolio__title">FracIQ - AI Operations Platform</h3>
+                                </div>
+
+                                <div class="portfolio__card-body">
+                                    <div class="portfolio__challenge-section">
+                                        <h4 class="section-label">Challenge</h4>
+                                        <p>RTOC operations teams struggle with fragmented vendor systems, manual reporting consuming 8+ hours daily, and lack of centralized real-time insights across hydraulic fracturing operations—leading to delayed decision-making and operational inefficiencies</p>
+                                    </div>
+
+                                    <div class="portfolio__solution-section">
+                                        <h4 class="section-label">Solution</h4>
+                                        <p>Built full-stack AI-powered operations platform integrating 13+ technical documents with RAG pipeline, automated daily reporting, smart task management with Kanban/calendar views, and centralized vendor integrations (Halliburton, Schlumberger, Liberty)—achieving <100ms API response times and 99.9% uptime SLA</p>
+                                    </div>
+
+                                    <div class="portfolio__metrics">
+                                        <div class="metric">
+                                            <span class="metric__value">13+</span>
+                                            <span class="metric__label">AI Docs</span>
+                                        </div>
+                                        <div class="metric">
+                                            <span class="metric__value">99.9%</span>
+                                            <span class="metric__label">Uptime SLA</span>
+                                        </div>
+                                        <div class="metric">
+                                            <span class="metric__value"><100ms</span>
+                                            <span class="metric__label">API Response</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="portfolio__card-footer">
+                                    <div class="portfolio__tech">
+                                        <span class="tech-tag">Next.js 15</span>
+                                        <span class="tech-tag">TypeScript</span>
+                                        <span class="tech-tag">Claude AI</span>
+                                        <span class="tech-tag">Prisma</span>
+                                        <span class="tech-tag">Tailwind CSS</span>
+                                    </div>
+                                    <div class="portfolio__links">
+                                        <a href="https://fraciq.vercel.app/" target="_blank" rel="noopener" class="portfolio__link portfolio__link--primary">
+                                            <i class="ph-arrow-square-out"></i> Live Demo
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
                         <article class="portfolio__item animate-on-scroll" data-category="web-dev" data-delay="600">
+                            <div class="portfolio__card">
+                                <div class="portfolio__card-header">
+                                    <div class="portfolio__icon">
+                                        <i class="ph-graduation-cap"></i>
+                                    </div>
+                                    <h3 class="portfolio__title">Bitcoin Education Platform</h3>
+                                </div>
+
+                                <div class="portfolio__card-body">
+                                    <div class="portfolio__challenge-section">
+                                        <h4 class="section-label">Challenge</h4>
+                                        <p>Cryptocurrency education resources are predominantly English-only, creating barriers for non-English speaking communities to access critical financial technology knowledge and participate in the digital economy</p>
+                                    </div>
+
+                                    <div class="portfolio__solution-section">
+                                        <h4 class="section-label">Solution</h4>
+                                        <p>Developed bilingual educational web platform using Next.js with server-side rendering, offering comprehensive Bitcoin knowledge in both English and Amharic—implementing responsive design, dynamic routing, and optimized content delivery to make cryptocurrency education accessible to diverse global audiences</p>
+                                    </div>
+
+                                    <div class="portfolio__metrics">
+                                        <div class="metric">
+                                            <span class="metric__value">2</span>
+                                            <span class="metric__label">Languages</span>
+                                        </div>
+                                        <div class="metric">
+                                            <span class="metric__value">SSR</span>
+                                            <span class="metric__label">Optimized</span>
+                                        </div>
+                                        <div class="metric">
+                                            <span class="metric__value">100%</span>
+                                            <span class="metric__label">Responsive</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="portfolio__card-footer">
+                                    <div class="portfolio__tech">
+                                        <span class="tech-tag">Next.js</span>
+                                        <span class="tech-tag">React</span>
+                                        <span class="tech-tag">TypeScript</span>
+                                        <span class="tech-tag">CSS3</span>
+                                    </div>
+                                    <div class="portfolio__links">
+                                        <a href="https://selebitcoin.vercel.app/?lang=am" target="_blank" rel="noopener" class="portfolio__link portfolio__link--primary">
+                                            <i class="ph-arrow-square-out"></i> Live Demo
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="portfolio__item animate-on-scroll" data-category="web-dev" data-delay="700">
                             <div class="portfolio__card">
                                 <div class="portfolio__card-header">
                                     <div class="portfolio__icon">
@@ -554,62 +610,6 @@
                                         <span class="tech-tag">JavaScript</span>
                                         <span class="tech-tag">CSS3</span>
                                         <span class="tech-tag">Canvas API</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </article>
-                        <article class="portfolio__item portfolio__item--featured animate-on-scroll" data-category="web-dev" data-delay="700">
-                            <div class="portfolio__card portfolio__card--featured">
-                                <div class="portfolio__featured-badge">
-                                    <i class="ph-star"></i> Featured Project
-                                </div>
-                                <div class="portfolio__card-header">
-                                    <div class="portfolio__icon portfolio__icon--ai">
-                                        <i class="ph-lightning"></i>
-                                    </div>
-                                    <h3 class="portfolio__title">Synaptic - AI-Powered Learning Platform</h3>
-                                </div>
-
-                                <div class="portfolio__card-body">
-                                    <div class="portfolio__challenge-section">
-                                        <h4 class="section-label">Challenge</h4>
-                                        <p>Students waste hours creating study materials manually and lack personalized learning experiences. Existing tools are expensive ($20+/month), limited (20MB file size), and one-size-fits-all approaches that don't adapt to individual learning styles.</p>
-                                    </div>
-
-                                    <div class="portfolio__solution-section">
-                                        <h4 class="section-label">Solution</h4>
-                                        <p>Built full-stack SaaS platform serving 1,000+ students with 12 AI-powered study tools including flashcards, mock exams, podcasts, and interactive mind maps. Architected RAG (Retrieval Augmented Generation) system using ChromaDB and OpenAI embeddings, enabling semantic search across 80MB+ documents with 95% relevance accuracy. Implemented multi-tier AI provider architecture (OpenAI, DeepSeek, Anthropic) with intelligent routing, reducing costs by 83% while maintaining quality.</p>
-                                    </div>
-
-                                    <div class="portfolio__metrics">
-                                        <div class="metric">
-                                            <span class="metric__value">1,000+</span>
-                                            <span class="metric__label">Active Users</span>
-                                        </div>
-                                        <div class="metric">
-                                            <span class="metric__value">83%</span>
-                                            <span class="metric__label">Cost Reduction</span>
-                                        </div>
-                                        <div class="metric">
-                                            <span class="metric__value">80MB+</span>
-                                            <span class="metric__label">Document Support</span>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="portfolio__card-footer">
-                                    <div class="portfolio__tech">
-                                        <span class="tech-tag">Next.js 15</span>
-                                        <span class="tech-tag">TypeScript</span>
-                                        <span class="tech-tag">PostgreSQL</span>
-                                        <span class="tech-tag">ChromaDB</span>
-                                        <span class="tech-tag">OpenAI API</span>
-                                        <span class="tech-tag">LangChain</span>
-                                    </div>
-                                    <div class="portfolio__links">
-                                        <a href="https://synaptic.study" target="_blank" rel="noopener" class="portfolio__link portfolio__link--primary">
-                                            <i class="ph-arrow-square-out"></i> Live Demo
-                                        </a>
                                     </div>
                                 </div>
                             </div>
