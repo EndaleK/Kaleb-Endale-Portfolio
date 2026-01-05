@@ -2368,9 +2368,9 @@ section {
 
 .filter__btn {
   padding: 0.875rem 1.75rem;
-  border: 2px solid transparent;
-  background: rgba(255, 255, 255, 0.05);
-  color: var(--text-color);
+  border: 2px solid #e2e8f0;
+  background: #f8fafc;
+  color: #64748b;
   border-radius: 30px;
   cursor: pointer;
   transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
@@ -2380,7 +2380,7 @@ section {
   overflow: hidden;
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 }
 
 .filter__btn::before {
@@ -2405,11 +2405,11 @@ section {
 }
 
 .filter__btn:hover {
-  border-color: var(--primary-color);
-  color: var(--primary-color);
-  background: rgba(100, 181, 246, 0.15);
+  border-color: #64b5f6;
+  color: #2196f3;
+  background: #e3f2fd;
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(100, 181, 246, 0.2);
+  box-shadow: 0 6px 20px rgba(100, 181, 246, 0.25);
 }
 
 .filter__btn--active {
@@ -3151,14 +3151,15 @@ section {
 }
 
 [data-theme="dark"] .filter__btn {
-  background: rgba(255, 255, 255, 0.05);
-  color: var(--text-light);
+  background: rgba(30, 41, 59, 0.8);
+  border-color: rgba(148, 163, 184, 0.3);
+  color: #94a3b8;
 }
 
 [data-theme="dark"] .filter__btn:hover {
-  background: rgba(125, 211, 252, 0.2);
-  border-color: var(--primary-color);
-  color: var(--primary-color);
+  background: rgba(125, 211, 252, 0.15);
+  border-color: #7dd3fc;
+  color: #7dd3fc;
 }
 
 [data-theme="dark"] .filter__btn--active {
