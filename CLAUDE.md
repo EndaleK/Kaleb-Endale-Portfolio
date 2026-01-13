@@ -172,5 +172,5 @@ Static site deployment options:
 - `assets/css/main.css` - All styles including themes
 - `assets/js/main.js` - All JavaScript functionality
 - `images/` - Portfolio images and profile photo
-- `Kaleb Endale - Comprehensive Resume.pdf` - Downloadable resume
+- `kaleb-endale-resume.pdf` - Downloadable resume
 - `kaleb-comprehensive-resume.md` - Resume in markdown format
