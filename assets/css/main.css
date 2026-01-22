@@ -2402,6 +2402,16 @@ section {
 .filter__btn span {
   position: relative;
   z-index: 1;
+  color: inherit;
+}
+
+/* Ensure non-active filter buttons have visible text */
+.filter__btn:not(.filter__btn--active) {
+  color: #334155 !important;
+}
+
+.filter__btn:not(.filter__btn--active) span {
+  color: #334155;
 }
 
 .filter__btn:hover {
